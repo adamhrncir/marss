@@ -9,5 +9,3 @@ assignees: ''
 
 **Popis**
 Podrobný popis a jak by finální funkce měla fungovat.
-
-**Funkce je závislá na:** N/A
