@@ -1,14 +1,13 @@
 ---
 name: Návrh funkce
 about: Nápad na funkci
-title: ''
+title: "[FR] Title"
 labels: design
 assignees: ''
 
 ---
 
-**Čeho se funkce týká?**
-Krátký a stručný popis, čeho se funkce týká
+**Popis**
+Podrobný popis a jak by finální funkce měla fungovat.
 
-**Jak by měla finální funkce vypadat**
-Podrobný popis, jak by finální funkce měla fungovat.
+**Funkce je závislá na:** N/A
