@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -8,46 +9,153 @@ export default function Home() {
 <>
 <div className='main'>
 
-        <div className="bg-orange-500 py-10 px-4 text-white flex justify-center items-center">
-          <div className="rounded-full overflow-hidden mr-4">
-            <Image
-              src="/profile.jpg"
-              alt="Profile Picture"
-              width={80}
-              height={80}
-            />
-          </div>
-          <h1 className="text-4xl font-bold">MARSS name</h1>
-        </div>
 
-    <div className="flex flex-wrap justify-center py-40 ">
-          <div className="flex w-full sm:w-1/2 md:w-1/4 bg-red-500 rounded-md p-10 m-2">
-            <p className="text-2xl font-bold">1</p>
-          </div>
-          <div className="flex w-full sm:w-1/2 md:w-1/4 bg-green-500 rounded-md p-10 m-2">
-          <p className="text-2xl font-bold">2</p>
-          </div>
-          <div className="flex w-full sm:w-1/2 md:w-1/4 bg-yellow-500 rounded-md p-10 m-2">
-          <p className="text-2xl font-bold">3</p>
-          </div>
-          <div className="flex w-full sm:w-1/2 md:w-1/4 bg-purple-500 rounded-md p-10 m-2">
-          <p className="text-2xl font-bold">4</p>
-          </div>
-        </div>
+  <div className="row">
+  
+    <div className="col-sm-2">
+    <Image
+        src="/images/logo.png"
+        width={150}
+        height={150}
+        alt="logo"
+        layout="responsive"
+      />
+    </div>
+    <div className="col-sm-3">
+      One of three columns
+    </div>
+    <div className="col-sm-3">
+      One of three columns
+    </div>
+    <div className="col-sm-4">
+    One of three columns
+    </div>
+  </div>
+
+
+
+<hr></hr>
+
+<a href="https://www.seznam.cz/">
+<div className="row">
+  
+  <div className="col-sm-2 .ilustracnifoto">
+  <Image
+      src="/images/test.jpg"
+      width={100}
+      height={130}
+      alt="ilustracnifoto"
+      layout="responsive"
+    />
+  </div>
+  <div className="col-sm-7">
+  <p><Image
+      src="/images/rootlogo.gif"
+      width={50}
+      height={20}
+      alt="logo"
+      
+    /> root.cz &bull; 3h <span>NEW</span></p>
+    <h4>KDE Plasma 6.0 nabídne Wayland, plovoucí panely a nový přepínač úloh</h4>
+
+  </div>
+  <div className="col-sm-2">
+    </div>
+</div>
+</a>
+
+
+
+<hr></hr>
+<a href="https://www.seznam.cz/">
+<div className="row">
+  
+  <div className="col-sm-2 .ilustracnifoto">
+  <Image
+      src="/images/test.jpg"
+      width={100}
+      height={130}
+      alt="ilustracnifoto"
+      layout="responsive"
+    />
+  </div>
+  <div className="col-sm-7">
+  <p><Image
+      src="/images/rootlogo.gif"
+      width={50}
+      height={20}
+      alt="logo"
+      
+    /> root.cz &bull; 3h <span>NEW</span></p>
+    <h4>KDE Plasma 6.0 nabídne Wayland, plovoucí panely a nový přepínač úloh</h4>
+
+  </div>
+  <div className="col-sm-2">
+    </div>
+</div>
+</a>
+<hr></hr>
+<a href="https://www.seznam.cz/">
+<div className="row">
+  
+  <div className="col-sm-2 .ilustracnifoto">
+  <Image
+      src="/images/test.jpg"
+      width={100}
+      height={130}
+      alt="ilustracnifoto"
+      layout="responsive"
+    />
+  </div>
+  <div className="col-sm-7">
+  <p><Image
+      src="/images/rootlogo.gif"
+      width={50}
+      height={20}
+      alt="logo"
+      
+    /> root.cz &bull; 3h <span>NEW</span></p>
+    <h4>KDE Plasma 6.0 nabídne Wayland, plovoucí panely a nový přepínač úloh</h4>
+
+  </div>
+  <div className="col-sm-2">
+    </div>
+</div>
+</a>
+<hr></hr>
+<a href="https://www.seznam.cz/">
+<div className="row">
+  
+  <div className="col-sm-2 .ilustracnifoto">
+  <Image
+      src="/images/test.jpg"
+      width={100}
+      height={130}
+      alt="ilustracnifoto"
+      layout="responsive"
+    />
+  </div>
+  <div className="col-sm-7">
+  <p><Image
+      src="/images/rootlogo.gif"
+      width={50}
+      height={20}
+      alt="logo"
+      
+    /> root.cz &bull; 3h <span>NEW</span></p>
+    <h4>KDE Plasma 6.0 nabídne Wayland, plovoucí panely a nový přepínač úloh</h4>
+
+  </div>
+  <div className="col-sm-2">
+    </div>
+</div>
+</a>
+
+
+
 
 
 </div>
-
-
-
-<footer className="bg-gray-800 py-4 w-full bottom-0 fixed">
-      <div className="container mx-auto text-center text-gray-400">
-        <p className="mb-4">Footer Content</p>
-        <p className="mt-4">&copy; <script>document.write(new Date().getFullYear())</script> MARSS</p>
-      </div>
-    </footer>
-
-
 </>
   )
 }
