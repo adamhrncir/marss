@@ -22,6 +22,7 @@ export default function homePage() {
       <Link href="/target-page">
       <button type="button" className="btn btn-outline-light btn-lg">Login</button>
       </Link>
+      
       </div>
       <div className="col-sm-6">
       <br></br>
