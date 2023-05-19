@@ -26,7 +26,7 @@ export default function homePage() {
       </div>
       <div className="col-sm-6">
       <br></br>
-      <Link href="/target-page">
+      <Link href="/register">
       <button type="button" className="btn btn-outline-light btn-lg">Register</button>
       </Link>
       </div>
