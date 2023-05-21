@@ -14,7 +14,9 @@ p, .col-sm-3, .col-sm-7 ,h1{
   font-family: 'Source Serif Pro', serif;
 }
 
-
+.form-check{
+  color : white;
+}
 
 .col-sm-2 .ilustracnifoto{
   margin-top: 50px;
@@ -56,4 +58,14 @@ hr{
   border-color: rgb(219, 62, 37);
   color: white;
 
+}
+
+.form-check-input[type="radio"] {
+  background-color: rgb(219, 62, 37);
+  color: rgb(219, 62, 37);
+}
+
+.home{
+  margin-top: 50px;
+  
 }
