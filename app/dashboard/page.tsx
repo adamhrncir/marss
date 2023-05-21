@@ -13,6 +13,7 @@ export default function Home() {
   <div className="row">
   
     <div className="col-sm-2">
+    <div className="logo">
     <Image
         src="/images/logo.png"
         width={150}
@@ -20,6 +21,7 @@ export default function Home() {
         alt="logo"
         layout="responsive"
       />
+    </div>
     </div>
     <div className="col-sm-3">
       One of three columns
