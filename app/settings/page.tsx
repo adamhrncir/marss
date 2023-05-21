@@ -34,17 +34,17 @@ export default function Home() {
 
 
 <h1>RSS Feed</h1>
-<p>To add more resources, enter the URL</p>
+<p>To add more resources, enter the valid URL address</p>
 
 <form>
   <div className="form-group">
-    <input type="url" className="form-control" id="exampleInputEmail1"  placeholder="Enter email"/>
+    <input type="url" className="form-control" id="exampleInputEmail1"  placeholder="https://marss.cz/rss/ "/>
   </div>
   <br></br>
-  <button type="submit" className="btn btn-primary">Add</button>
+  <button type="submit" className="btn btn-outline-light">Add URL address</button>
 </form>
 
-
+<hr></hr>
 
 
 </div>
