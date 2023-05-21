@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,9 +30,21 @@ export default function Home() {
     <div className="col-sm-3">
       One of three columns
     </div>
-    <div className="col-sm-4">
+    <div className="col-sm-3">
     One of three columns
     </div>
+
+    <div className="col-sm-1">
+      <div className="home">
+      <Link href="/settings">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-gear-fill"></i>
+    &nbsp; Home
+    </button>
+    </Link> 
+        </div>
+    </div>
+
   </div>
 
 
