@@ -24,22 +24,17 @@ export default function Home() {
       />
     </div>
     </div>
-    <div className="col-sm-3">
-      One of three columns
-    </div>
-    <div className="col-sm-3">
-      One of three columns
-    </div>
-    <div className="col-sm-3">
-    One of three columns
+    <div className="col-sm-9">
+      
     </div>
 
+
     <div className="col-sm-1">
-      <div className="home">
+      <div className="settings">
       <Link href="/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
-    &nbsp; Home
+    &nbsp; Settings
     </button>
     </Link> 
         </div>
