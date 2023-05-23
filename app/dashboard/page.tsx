@@ -29,7 +29,7 @@ export default function Home() {
     </div>
 
     <div className="col-sm-1">
-      <div className="search">
+      <div className="searchbutton">
       <Link href="/search">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-search"></i>
