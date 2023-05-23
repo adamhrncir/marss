@@ -24,8 +24,19 @@ export default function Home() {
       />
     </div>
     </div>
-    <div className="col-sm-9">
+    <div className="col-sm-8">
       
+    </div>
+
+    <div className="col-sm-1">
+      <div className="search">
+      <Link href="/search">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-search"></i>
+    &nbsp;Search&nbsp;
+    </button>
+    </Link> 
+        </div>
     </div>
 
 
@@ -34,7 +45,7 @@ export default function Home() {
       <Link href="/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
-    &nbsp; Settings
+    Settings
     </button>
     </Link> 
         </div>
