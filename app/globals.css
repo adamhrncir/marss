@@ -60,3 +60,18 @@ hr{
 body {
   background-color: rgb(67, 67, 65);
 }
+
+.btn-link{
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  
+}
+
+.btn-link:hover{
+  color: rgb(219, 62, 37);
+}
+.heart{
+  text-align: right;
+  margin-top: 30px;
+}

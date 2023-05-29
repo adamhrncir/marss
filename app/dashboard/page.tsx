@@ -93,7 +93,9 @@ export default function Home() {
     <h4>KDE Plasma 6.0 nabídne Wayland, plovoucí panely a nový přepínač úloh</h4>
 
   </div>
-  <div className="col-sm-2">
+  <div className='col-sm-1'></div>
+  <div className="col-sm-1 heart">
+  <button type="button" className="btn btn-bg btn-link"><h5><i className="bi bi-heart-fill"></i></h5></button>
     </div>
 </div>
 </a>
