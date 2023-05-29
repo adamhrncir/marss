@@ -21,6 +21,7 @@ model User {
 model rss {
   id             Int         @id @default(autoincrement())
   website_name   String
+  favourite      Boolean     @default(false)
   User           User        @relation(fields: [userId], references: [id])
   userId         Int
   rss_content    rss_content @relation(fields: [rss_contentUrl], references: [url])
