@@ -24,9 +24,22 @@ export default function Home() {
       />
     </div>
     </div>
-    <div className="col-sm-8">
+    <div className="col-sm-7">
       
     </div>
+
+
+    <div className="col-sm-1">
+      <div className="logOut">
+      <Link href="/logOut">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-box-arrow-right"></i><br></br>
+    Log&nbsp;out
+    </button>
+    </Link> 
+        </div>
+    </div>
+
 
     <div className="col-sm-1">
       <div className="searchbutton">
