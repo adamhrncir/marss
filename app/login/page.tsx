@@ -27,17 +27,17 @@ export default function Home() {
 
 <form>
   <div className="form-group">
-    <label htmlFor="exampleInputEmail1">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+    <label htmlFor="InputEmail1">Email address</label>
+    <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
   </div>
   <div className="form-group">
-    <label htmlFor="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+    <label htmlFor="InputPassword1">Password</label>
+    <input type="password" className="form-control" id="InputPassword1" placeholder="Password"></input>
   </div>
   <br></br>
   <div className="form-check">
     <input type="checkbox" className="form-check-input" id="remember"/>
-    <label className="form-check-label" htmlFor="exampleCheck1">remember me</label>
+    <label className="form-check-label" htmlFor="Check1">remember me</label>
   </div>
 <br></br>
 <button type="button" className="btn btn-outline-light btn-lg" id="login">Login</button>
