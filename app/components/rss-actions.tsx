@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 export async function fetchAllFeeds(email: string){
 
     const userID = await prisma.user
-    .findUnique({ where: { email: email },  })
+    .findUnique({ where: { email: email } })
 
     const stringid = JSON.stringify(userID)
     const obj = JSON.parse(stringid)
@@ -21,7 +21,7 @@ export async function fetchAllFeeds(email: string){
 export async function fetchAll(email: string) {
 
   const userID = await prisma.user
-    .findUnique({ where: { email: email },  })
+    .findUnique({ where: { email: email } })
 
     const stringid = JSON.stringify(userID)
     const obj = JSON.parse(stringid)
@@ -44,7 +44,7 @@ export async function fetchAll(email: string) {
 export async function fetchStart(email: string, search: string) {
 
   const userID = await prisma.user
-    .findUnique({ where: { email: email },  })
+    .findUnique({ where: { email: email } })
 
     const stringid = JSON.stringify(userID)
     const obj = JSON.parse(stringid)
@@ -69,7 +69,7 @@ export async function fetchStart(email: string, search: string) {
 export async function fetchFavs(email: string) {
 
   const userID = await prisma.user
-    .findUnique({ where: { email: email },  })
+    .findUnique({ where: { email: email } })
 
     const stringid = JSON.stringify(userID)
     const obj = JSON.parse(stringid)
@@ -78,6 +78,25 @@ export async function fetchFavs(email: string) {
     .findMany({ where: { userId: obj.id , favourite: true  } })
 
     const stringrss = JSON.stringify(rss)
+    const obj2 = JSON.parse(stringrss)
+
+    console.log(obj2)
+
+    return obj2
+}
+
+export async function fetchAllTags(email: string) {
+
+  const userID = await prisma.user
+    .findUnique({ where: { email: email } })
+
+    const stringid = JSON.stringify(userID)
+    const obj = JSON.parse(stringid)
+
+    const rss_tag = await prisma.rss_tag
+    .findMany({ where: { userId: obj.id } })
+
+    const stringrss = JSON.stringify(rss_tag)
     const obj2 = JSON.parse(stringrss)
 
     console.log(obj2)
