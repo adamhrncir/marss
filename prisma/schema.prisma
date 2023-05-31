@@ -53,6 +53,6 @@ model weather {
   location  String   @unique
   longlat   String
   result    String
-  fetchtime DateTime
+  fetchtime Int
   user      User[]
 }
