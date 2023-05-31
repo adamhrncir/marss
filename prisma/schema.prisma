@@ -31,10 +31,13 @@ model rss {
 }
 
 model rss_content {
-  url       String   @id @unique
-  content   String
-  fetchtime DateTime
-  feeds     rss[]
+  url         String   @id @unique
+  title       String
+  link        String
+  description String
+  guid        String  @unique
+  fetchtime   DateTime
+  feeds       rss[]
 }
 
 model rss_tag {
