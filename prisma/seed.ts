@@ -22,7 +22,7 @@ async function main() {
         create: {
             url: 'www.superweb.cz/rss',
             title: 'Bába pod kořenem',
-            link: 'www.superweb.ct/clanky/babapodkorenem',
+            link: 'www.superweb.cz/clanky/babapodkorenem',
             description: 'babka spadla pod koren. 40 minut bila do dreva, nez si ji nekdo vsimnul.',
             guid: 'superweb.cz/123-456',
             fetchtime: 1685538618,
