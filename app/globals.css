@@ -75,3 +75,41 @@ body {
   text-align: right;
   margin-top: 30px;
 }
+
+.settingsMobile, .searchbuttonMobile, .logOutMobile{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
+}
+
+.settingsMobile, .searchbuttonMobile, .logOutMobile{
+  display: block;
+}
+
+.settings, .searchbutton, .logOut{
+ display: none;
+}
+
+.settingsMobile{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.searchbuttonMobile{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobile{
+  position: absolute;
+  right: 130px;
+  top: 60px
+
+}
+
+}

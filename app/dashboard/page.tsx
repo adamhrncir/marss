@@ -10,7 +10,6 @@ export default function Home() {
 <>
 <div className='main'>
 
-
   <div className="row">
   
     <div className="col-sm-2">
@@ -22,6 +21,8 @@ export default function Home() {
         alt="logo"
         layout="responsive"
       />
+
+      
     </div>
     </div>
     <div className="col-sm-7">
@@ -38,6 +39,14 @@ export default function Home() {
     </button>
     </Link> 
         </div>
+        <div className="logOutMobile">
+      <Link href="/logOut">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-box-arrow-right"></i><br></br>
+
+    </button>
+    </Link> 
+        </div>
     </div>
 
 
@@ -50,6 +59,13 @@ export default function Home() {
     </button>
     </Link> 
         </div>
+        <div className="searchbuttonMobile">
+      <Link href="/search">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-search"></i>
+    </button>
+    </Link> 
+        </div>
     </div>
 
 
@@ -59,6 +75,13 @@ export default function Home() {
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
     Settings
+    </button>
+    </Link> 
+        </div>
+        <div className="settingsMobile">
+      <Link href="/settings">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-gear-fill"></i>
     </button>
     </Link> 
         </div>
