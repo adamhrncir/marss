@@ -24,16 +24,23 @@ export default function Home() {
       />
     </div>
     </div>
-    <div className="col-sm-8">
-      
-    </div>
+    <div className="col-sm-7">
+      </div>
 
-    <div className="col-sm-1">
-      <div className="searchbutton">
-      <Link href="/search">
+      <div className="col-sm-1">
+      <div className="logOut">
+      <Link href="/logOut">
     <button type="button" className="btn btn-sm btn-outline-light">
-    <i className="bi bi-search"></i>
-    &nbsp;Search&nbsp;
+    <i className="bi bi-box-arrow-right"></i><br></br>
+    Log&nbsp;out
+    </button>
+    </Link> 
+        </div>
+        <div className="logOutMobile">
+      <Link href="/logOut">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-box-arrow-right"></i><br></br>
+
     </button>
     </Link> 
         </div>
@@ -49,11 +56,33 @@ export default function Home() {
     </button>
     </Link> 
         </div>
+        <div className="settingsMobile">
+      <Link href="/settings">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-gear-fill"></i>
+    </button>
+    </Link> 
+        </div>
     </div>
 
+    <div className="col-sm-1">
+      <div className="home">
+      <Link href="/dashboard">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-house-fill"></i>
+    &nbsp; Home
+    </button>
+    </Link> 
+        </div>
+        <div className="homeMobile">
+      <Link href="/dashboard">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-house-fill"></i>
+    </button>
+    </Link> 
+        </div>
+    </div>
   </div>
-
-
 
 <hr></hr>
 

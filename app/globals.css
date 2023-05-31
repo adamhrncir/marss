@@ -54,7 +54,7 @@ hr{
 
 }
 
-.settings, .searchbutton{
+.settings, .home, .logOut{
   margin-top: 50px;
 }
 
@@ -108,3 +108,43 @@ body {
   background: rgb(219, 62, 37);
 
  }
+
+
+ .settingsMobile, .homeMobile, .logOutMobile{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
+}
+
+.settingsMobile, .homeMobile, .logOutMobile{
+  display: block;
+}
+
+.settings, .home, .logOut{
+ display: none;
+}
+
+.settingsMobile{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.homeMobile{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobile{
+  position: absolute;
+  right: 130px;
+  top: 60px
+
+}
+
+}
+
