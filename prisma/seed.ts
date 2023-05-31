@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 import { hash } from 'bcrypt'
-import { now } from 'next-auth/client/_utils'
 
 const prisma = new PrismaClient()
 
@@ -29,17 +28,26 @@ async function main() {
         }
     })
     
+    const rss_tag = await prisma.rss_tag.upsert({
+        where: { id: 1 },
+        update: {},
+        create: {
+            name: 'technologie',
+            userId: 1
+        }
+    })
+
     const rss = await prisma.rss.upsert({
         where: { id: 1 },
         update: {},
         create: {
             website_name: 'xd',
             userId: 1,
-            rss_contentUrl: 'www.superweb.cz/rss'
-
+            rss_contentUrl: 'www.superweb.cz/rss',
+            rss_tagId: 1
         },
     })
-
+    
 
     console.log({ user })
     console.log({ rss })
