@@ -65,7 +65,47 @@ hr{
   color: rgb(219, 62, 37);
 }
 
-.home{
+.home, .searchbutton, .logOut{
   margin-top: 50px;
   
+}
+
+
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
+}
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: block;
+}
+
+.home, .searchbutton, .logOut{
+ display: none;
+}
+
+.homeMobile{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.searchbuttonMobile{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobile{
+  position: absolute;
+  right: 130px;
+  top: 60px
+
+}
+
 }

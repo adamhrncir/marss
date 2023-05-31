@@ -26,14 +26,60 @@ export default function Home() {
     </Link>
     </div>
     </div>
-    <div className="col-sm-9">
+    <div className="col-sm-7">
       </div>
+
+      <div className="col-sm-1">
+      <div className="logOut">
+      <Link href="/logOut">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-box-arrow-right"></i><br></br>
+    Log&nbsp;out
+    </button>
+    </Link> 
+        </div>
+        <div className="logOutMobile">
+      <Link href="/logOut">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-box-arrow-right"></i><br></br>
+
+    </button>
+    </Link> 
+        </div>
+    </div>
+
+
+    <div className="col-sm-1">
+      <div className="searchbutton">
+      <Link href="/search">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-search"></i>
+    &nbsp;Search&nbsp;
+    </button>
+    </Link> 
+        </div>
+        <div className="searchbuttonMobile">
+      <Link href="/search">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-search"></i>
+    </button>
+    </Link> 
+        </div>
+    </div>
+
     <div className="col-sm-1">
       <div className="home">
       <Link href="/dashboard">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-house-fill"></i>
     &nbsp; Home
+    </button>
+    </Link> 
+        </div>
+        <div className="homeMobile">
+      <Link href="/dashboard">
+    <button type="button" className="btn btn-sm btn-outline-light">
+    <i className="bi bi-house-fill"></i>
     </button>
     </Link> 
         </div>
