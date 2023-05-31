@@ -36,7 +36,7 @@ model rss_content {
   link        String
   description String
   guid        String  @unique
-  fetchtime   DateTime
+  fetchtime   Int
   feeds       rss[]
 }
 
