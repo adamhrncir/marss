@@ -16,7 +16,7 @@ async function main() {
     })
 
     const rss_content = await prisma.rss_content.upsert({
-        where: { url: 'www.superweb.cz/rss' },
+        where: { guid: 'superweb.cz/123-456' },
         update: {},
         create: {
             url: 'www.superweb.cz/rss',
@@ -29,7 +29,7 @@ async function main() {
     })
 
     const rss_content2 = await prisma.rss_content.upsert({
-        where: { url: 'www.druhyweb.cz/rss' },
+        where: { guid: 'druhyweb.cz/4651-456' },
         update: {},
         create: {
             url: 'www.druhyweb.cz/rss',
@@ -38,6 +38,19 @@ async function main() {
             description: 'Jiny popisek',
             guid: 'druhyweb.cz/4651-456',
             fetchtime: 1685542813,
+        }
+    })
+
+    const rss_content3 = await prisma.rss_content.upsert({
+        where: { guid: 'druhyweb.cz/4651-457' },
+        update: {},
+        create: {
+            url: 'www.druhyweb.cz/rss',
+            title: 'Stalo se hodně',
+            link: 'www.druhyweb.cz/clanky/vsechnosestalo',
+            description: 'HODNĚ VĚCÍ',
+            guid: 'druhyweb.cz/4651-457',
+            fetchtime: 1685542943,
         }
     })
     
