@@ -72,8 +72,10 @@ body {
   color: rgb(219, 62, 37);
 }
 .heart{
+  position: absolute;
   text-align: right;
-  margin-top: 30px;
+  margin-top: -70px;
+  right: 430px;
 }
 
 .settingsMobile, .searchbuttonMobile, .logOutMobile{
@@ -111,5 +113,12 @@ body {
   top: 60px
 
 }
+.heart{
+  position: absolute;
+  text-align: right;
+  margin-top: -50px;
+  right: 30px;
+}
+
 
 }
