@@ -15,6 +15,8 @@ export async function fetchAllFeeds(email: string){
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
+    
+
     return obj2
 }
 
@@ -40,6 +42,61 @@ export async function fetchAll(email: string) {
 
     return obj3
 }
+
+export async function fetchName(contentUrl: string) {
+
+  const rss = await prisma.rss
+  .findFirst({ where: { rss_contentUrl: contentUrl } })
+
+  const stringrss = JSON.stringify(rss)
+  const obj = JSON.parse(stringrss)
+
+
+
+  return obj.website_name
+}
+
+export async function fetchImg(contentUrl: string) {
+
+  const rss = await prisma.rss
+  .findFirst({ where: { rss_contentUrl: contentUrl } })
+
+  const stringrss = JSON.stringify(rss)
+  const obj = JSON.parse(stringrss)
+
+  
+
+  return obj.image
+}
+
+export async function fetchIfFav(contentUrl: string) {
+
+  const rss = await prisma.rss
+  .findFirst({ where: { rss_contentUrl: contentUrl } })
+
+  const stringrss = JSON.stringify(rss)
+  const obj = JSON.parse(stringrss)
+
+  console.log(obj.favourite)  
+
+  return (obj.favourite)
+}
+
+export async function FavDisplay(favourite: boolean) {
+
+  let image
+
+  if (favourite){
+    image = 'favourite.jpg'
+  }
+  else{
+    image = 'notfavourite.jpg'
+  }
+
+  console.log(image)
+  return image
+}
+
 
 export async function fetchStart(email: string, search: string) {
 
@@ -80,7 +137,7 @@ export async function fetchFavs(email: string) {
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
-    console.log(obj2)
+    
 
     return obj2
 }
@@ -99,7 +156,7 @@ export async function fetchAllTags(email: string) {
     const stringrss = JSON.stringify(rss_tag)
     const obj2 = JSON.parse(stringrss)
 
-    console.log(obj2)
+    
 
     return obj2
 }

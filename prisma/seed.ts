@@ -42,9 +42,11 @@ async function main() {
         update: {},
         create: {
             website_name: 'xd',
+            image: 'https://i.iinfo.cz/r/rss-88x31.gif',
             userId: 1,
             rss_contentUrl: 'www.superweb.cz/rss',
-            rss_tagId: 1
+            rss_tagId: 1,
+            favourite: true
         },
     })
     

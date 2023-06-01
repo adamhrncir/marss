@@ -21,6 +21,7 @@ model User {
 model rss {
   id             Int         @id @default(autoincrement())
   website_name   String
+  image          String?
   favourite      Boolean     @default(false)
   User           User        @relation(fields: [userId], references: [id])
   userId         Int
@@ -31,11 +32,11 @@ model rss {
 }
 
 model rss_content {
-  url         String   @id @unique
+  url         String @id @unique
   title       String
   link        String
   description String
-  guid        String  @unique
+  guid        String @unique
   fetchtime   Int
   feeds       rss[]
 }
@@ -49,8 +50,8 @@ model rss_tag {
 }
 
 model weather {
-  id        Int      @id @default(autoincrement())
-  location  String   @unique
+  id        Int    @id @default(autoincrement())
+  location  String @unique
   longlat   String
   result    String
   fetchtime Int
