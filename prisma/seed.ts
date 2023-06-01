@@ -27,6 +27,19 @@ async function main() {
             fetchtime: 1685538618,
         }
     })
+
+    const rss_content2 = await prisma.rss_content.upsert({
+        where: { url: 'www.druhyweb.cz/rss' },
+        update: {},
+        create: {
+            url: 'www.druhyweb.cz/rss',
+            title: 'Nic se nestalo',
+            link: 'www.druhyweb.cz/clanky/niczajimavyho',
+            description: 'Jiny popisek',
+            guid: 'druhyweb.cz/4651-456',
+            fetchtime: 1685542813,
+        }
+    })
     
     const rss_tag = await prisma.rss_tag.upsert({
         where: { id: 1 },
@@ -49,11 +62,22 @@ async function main() {
             favourite: true
         },
     })
+
+    const rss2 = await prisma.rss.upsert({
+        where: { id: 2 },
+        update: {},
+        create: {
+            website_name: 'druhyweb',
+            image: 'https://i.iinfo.cz/r/rss-88x31.gif',
+            userId: 1,
+            rss_contentUrl: 'www.druhyweb.cz/rss',
+            rss_tagId: 1,
+            favourite: false
+        },
+    })
     
 
-    console.log({ user })
-    console.log({ rss })
-    console.log({ rss_content })
+    console.log('uspesny seed')
 }
 main()
     .then(() => prisma.$disconnect())
