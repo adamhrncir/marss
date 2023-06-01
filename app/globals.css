@@ -54,9 +54,10 @@ hr{
 
 }
 
-.settings, .searchbutton, .logOut{
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard{
   margin-top: 50px;
 }
+
 body {
   background-color: rgb(67, 67, 65);
 }
@@ -78,7 +79,7 @@ body {
   right: 430px;
 }
 
-.settingsMobile, .searchbuttonMobile, .logOutMobile{
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard{
   display: none;
 }
 
@@ -88,31 +89,35 @@ body {
   width: 30%;
 }
 
-.settingsMobile, .searchbuttonMobile, .logOutMobile{
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard{
   display: block;
 }
 
-.settings, .searchbutton, .logOut{
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard{
  display: none;
 }
 
-.settingsMobile{
+.settingsMobileDashboard{
   position: absolute;
   right: 30px;
   top: 60px
 }
-.searchbuttonMobile{
+.searchbuttonMobileDashboard{
   position: absolute;
   right:80px;
   top: 60px
 }
 
-.logOutMobile{
+.logOutMobileDashboard{
   position: absolute;
   right: 130px;
   top: 60px
 
 }
+
+
+
+
 .heart{
   position: absolute;
   text-align: right;

@@ -51,7 +51,7 @@ export default async function dashboardPage() {
 
 
   <div className="col-sm-1">
-    <div className="logOut">
+    <div className="logOutDashboard">
     <Link href="/logOut">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-box-arrow-right"></i><br></br>
@@ -59,7 +59,7 @@ export default async function dashboardPage() {
   </button>
   </Link> 
       </div>
-      <div className="logOutMobile">
+      <div className="logOutMobileDashboard">
     <Link href="/logOut">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-box-arrow-right"></i><br></br>
@@ -71,7 +71,7 @@ export default async function dashboardPage() {
 
 
   <div className="col-sm-1">
-    <div className="searchbutton">
+    <div className="searchbuttonDashboard">
     <Link href="/search">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-search"></i>
@@ -79,7 +79,7 @@ export default async function dashboardPage() {
   </button>
   </Link> 
       </div>
-      <div className="searchbuttonMobile">
+      <div className="searchbuttonMobileDashboard">
     <Link href="/search">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-search"></i>
@@ -90,7 +90,7 @@ export default async function dashboardPage() {
 
 
   <div className="col-sm-1">
-    <div className="settings">
+    <div className="settingsDashboard">
     <Link href="/settings">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-gear-fill"></i>
@@ -98,7 +98,7 @@ export default async function dashboardPage() {
   </button>
   </Link> 
       </div>
-      <div className="settingsMobile">
+      <div className="settingsMobileDashboard">
     <Link href="/settings">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-gear-fill"></i>
@@ -111,8 +111,7 @@ export default async function dashboardPage() {
 
 <hr></hr>
 
-        {listAll.map((article: any) => (
-          <><Link href={article.link} key={article.id}>
+          <><Link href={listAll[0].link} >
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <Image
@@ -122,16 +121,16 @@ export default async function dashboardPage() {
                   alt="ilustracnifoto"
                   layout="responsive" />
               </div>
-              <div className="col-sm-7">
+              <div className="col-sm-7 weblogo">
                 <p>
                   <Image
                     src="/images/rootlogo.gif"
                     width={50}
                     height={20}
                     alt="logo" />{' '}
-                  {article.website_name} &bull; 3h <span>NEW</span>
+                { await fetchName( await allFeeds[0].rss_contentUrl ) }
                 </p>
-                <h4>{article.title}</h4>
+                <h4>{listAll[0].title}</h4>
               </div>
               <div className='col-sm-2'></div>
 
@@ -146,9 +145,13 @@ export default async function dashboardPage() {
             </div>
           </div></>
 
-        ))}
+        
 
         <hr />
+
+
+
+
       </div>
     </>
   )
