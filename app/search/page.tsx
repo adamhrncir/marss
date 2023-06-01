@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       <div className="col-sm-1">
-      <div className="logOut">
+      <div className="logOutSearch">
       <Link href="/logOut">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-box-arrow-right"></i><br></br>
@@ -36,7 +36,7 @@ export default function Home() {
     </button>
     </Link> 
         </div>
-        <div className="logOutMobile">
+        <div className="logOutMobileSearch">
       <Link href="/logOut">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-box-arrow-right"></i><br></br>
@@ -48,7 +48,7 @@ export default function Home() {
 
 
     <div className="col-sm-1">
-      <div className="settings">
+      <div className="settingsSearch">
       <Link href="/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
@@ -56,7 +56,7 @@ export default function Home() {
     </button>
     </Link> 
         </div>
-        <div className="settingsMobile">
+        <div className="settingsMobileSearch">
       <Link href="/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
@@ -66,7 +66,7 @@ export default function Home() {
     </div>
 
     <div className="col-sm-1">
-      <div className="home">
+      <div className="homeSearch">
       <Link href="/dashboard">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-house-fill"></i>
@@ -74,7 +74,7 @@ export default function Home() {
     </button>
     </Link> 
         </div>
-        <div className="homeMobile">
+        <div className="homeMobileSearch">
       <Link href="/dashboard">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-house-fill"></i>
@@ -94,7 +94,7 @@ export default function Home() {
   <div className="search">
   <i className="bi bi-search"></i>
     <input type="text" className="form-control" placeholder="Search"/>
-    <button className="btn btn-primary">Search</button>
+    <button type="submit" className="btn btn-primary">Search</button>
   </div>
   
 </div>

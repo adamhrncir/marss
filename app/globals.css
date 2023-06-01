@@ -54,7 +54,7 @@ hr{
 
 }
 
-.settings, .home, .logOut{
+.settingsSearch, .homeSearch, .logOutSearch{
   margin-top: 50px;
 }
 
@@ -110,7 +110,7 @@ body {
  }
 
 
- .settingsMobile, .homeMobile, .logOutMobile{
+ .settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: none;
 }
 
@@ -120,26 +120,26 @@ body {
   width: 30%;
 }
 
-.settingsMobile, .homeMobile, .logOutMobile{
+.settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: block;
 }
 
-.settings, .home, .logOut{
+.settingsSearch, .homeSearch, .logOutSearch{
  display: none;
 }
 
-.settingsMobile{
+.settingsMobileSearch{
   position: absolute;
   right: 30px;
   top: 60px
 }
-.homeMobile{
+.homeMobileSearch{
   position: absolute;
   right:80px;
   top: 60px
 }
 
-.logOutMobile{
+.logOutMobileSearch{
   position: absolute;
   right: 130px;
   top: 60px
