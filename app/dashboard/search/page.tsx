@@ -41,7 +41,7 @@ export default function Home() {
 
     <div className="col-sm-1">
       <div className="settingsSearch">
-      <Link href="/settings">
+      <Link href="/dashboard/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
     Settings
@@ -49,7 +49,7 @@ export default function Home() {
     </Link> 
         </div>
         <div className="settingsMobileSearch">
-      <Link href="/settings">
+      <Link href="/dashbord/settings">
     <button type="button" className="btn btn-sm btn-outline-light">
     <i className="bi bi-gear-fill"></i>
     </button>
