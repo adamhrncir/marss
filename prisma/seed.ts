@@ -41,18 +41,7 @@ async function main() {
         }
     })
 
-    const rss_content3 = await prisma.rss_content.upsert({
-        where: { guid: 'druhyweb.cz/4651-457' },
-        update: {},
-        create: {
-            url: 'www.druhyweb.cz/rss',
-            title: 'Stalo se hodně',
-            link: 'www.druhyweb.cz/clanky/vsechnosestalo',
-            description: 'HODNĚ VĚCÍ',
-            guid: 'druhyweb.cz/4651-457',
-            fetchtime: 1685542943,
-        }
-    })
+    
     
     const rss_tag = await prisma.rss_tag.upsert({
         where: { id: 1 },

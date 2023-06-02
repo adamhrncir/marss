@@ -119,6 +119,36 @@ export default async function dashboardPage() {
 
             </div>
           </Link>
+          <hr></hr>
+
+
+
+          <Link href={listAll[1].link} >
+            <div className="row">
+              <div className="col-sm-2 .ilustracnifoto">
+                <Image
+                  src="/images/test.jpg"
+                  width={100}
+                  height={130}
+                  alt="ilustracnifoto"
+                  layout="responsive" />
+              </div>
+              <div className="col-sm-7 weblogo">
+                <p>
+                  <Image
+                    src="/images/rootlogo.gif"
+                    width={50}
+                    height={20}
+                    alt="logo" />{' '}
+                { await fetchName( await allFeeds[1].rss_contentUrl ) }
+                </p>
+                <h4>{listAll[1].title}</h4>
+              </div>
+              <div className='col-sm-2'></div>
+
+            </div>
+          </Link>
+
           
           <div>
          
