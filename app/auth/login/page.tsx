@@ -13,20 +13,23 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   
-  const userName = useRef("");
+  const email = useRef("");
   const pass = useRef("");
 
-  const onSubmit =async () => {
+  const onSubmit = async () => {
+
+    console.log(email.current, pass.current)
+
     const result = await signIn("credentials",{
-        username:userName.current,
+        email:email.current,
         password:pass.current,
         redirect:true,
         callbackUrl:"/dashboard"
     })
   }
   
+  
   return (
-
 <div className='main'>
 
 <div className="center">
@@ -48,7 +51,7 @@ export default function Home() {
 <form>
   <div className="form-group">
     <label htmlFor="InputEmail1">Email address</label>
-    <input type="email" className="form-control" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" onChange={(e) => (userName.current = e.target.value)}></input>
+    <input type="email" className="form-control" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" onChange={(e) => (email.current = e.target.value)}></input>
   </div>
   <div className="form-group">
     <label htmlFor="InputPassword1">Password</label>
