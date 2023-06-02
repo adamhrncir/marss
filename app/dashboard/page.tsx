@@ -138,11 +138,7 @@ export default async function dashboardPage() {
           </Link>
           
           <div>
-          <div className="heart">
-             <form action="something" method="POST">
-              <button type="submit" className="btn btn-bg btn-link"><h5><i className="bi bi-heart-fill"></i></h5></button>
-              </form>
-            </div>
+         
           </div></>
 
         
