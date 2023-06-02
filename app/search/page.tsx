@@ -92,9 +92,12 @@ export default function Home() {
 <div className="col-md-8">
 
   <div className="search">
+  <form action="/components/rss-actions.tsx" method="post">
   <i className="bi bi-search"></i>
-    <input type="text" className="form-control" placeholder="Search"/>
-    <button type="submit" className="btn btn-primary">Search</button>
+    <input type="text" id="search" className="form-control" />
+    <button type="submit" className="btn  btn-outline-dark">Search</button>
+
+    </form>
   </div>
   
 </div>
