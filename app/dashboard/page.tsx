@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../components/rss-actions";
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth';
+import { LogoutButton, LogoutButtonMobile } from '../dashboard/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -52,22 +53,13 @@ export default async function dashboardPage() {
 
   <div className="col-sm-1">
     <div className="logOutDashboard">
-    <Link href="/logOut">
-  <button type="button" className="btn btn-sm btn-outline-light">
-  <i className="bi bi-box-arrow-right"></i><br></br>
-  Log&nbsp;out
-  </button>
-  </Link> 
+    <LogoutButton />
       </div>
       <div className="logOutMobileDashboard">
-    <Link href="/logOut">
-  <button type="button" className="btn btn-sm btn-outline-light">
-  <i className="bi bi-box-arrow-right"></i><br></br>
-
-  </button>
-  </Link> 
+    <LogoutButtonMobile />
       </div>
   </div>
+
 
 
   <div className="col-sm-1">
