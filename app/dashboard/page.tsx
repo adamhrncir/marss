@@ -9,15 +9,6 @@ import { LogoutButton, LogoutButtonMobile } from '../dashboard/auth'
 const inter = Inter({ subsets: ['latin'] })
 
 
-
-
-
-
-
-
-
-
-
 export default async function dashboardPage() {
 
 
@@ -64,7 +55,7 @@ export default async function dashboardPage() {
 
   <div className="col-sm-1">
     <div className="searchbuttonDashboard">
-    <Link href="/search">
+    <Link href="/dashboard/search">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-search"></i>
   &nbsp;Search&nbsp;
@@ -72,7 +63,7 @@ export default async function dashboardPage() {
   </Link> 
       </div>
       <div className="searchbuttonMobileDashboard">
-    <Link href="/search">
+    <Link href="/dashboard/search">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-search"></i>
   </button>

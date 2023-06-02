@@ -54,9 +54,13 @@ hr{
 
 }
 
-.settingsDashboard, .searchbuttonDashboard, .logOutDashboard{
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard ,.settingsSearch, .homeSearch, .logOutSearch{
   margin-top: 50px;
+  
+
 }
+
+
 
 body {
   background-color: rgb(67, 67, 65);
@@ -72,16 +76,63 @@ body {
 .btn-link:hover{
   color: rgb(219, 62, 37);
 }
-.heart{
-  position: absolute;
-  text-align: right;
-  margin-top: -70px;
-  right: 430px;
-}
 
-.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard{
+
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard,.settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: none;
 }
+
+
+
+
+
+
+
+.search{
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    
+  }
+ 
+  .search input{
+ 
+   height: 60px;
+   text-indent: 25px;
+   border: 2px solid #d6d4d4;
+ 
+ 
+  }
+ 
+ 
+  .search input:focus{
+ 
+   box-shadow: none;
+   border: 2px solid rgb(219, 62, 37);
+ 
+ 
+  }
+ 
+  .search .bi-search{
+ 
+   position: absolute;
+   top: 19px;
+   left: 16px;
+ 
+  }
+ 
+ 
+  .search button{
+ 
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   height: 50px;
+   width: 110px;
+   background: rgb(219, 62, 37);
+ 
+  }
+
+
 
 
 @media only screen and (max-width: 600px) {
@@ -89,40 +140,30 @@ body {
   width: 30%;
 }
 
-.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard{
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard, .settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: block;
 }
 
-.settingsDashboard, .searchbuttonDashboard, .logOutDashboard{
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard, .settingsSearch, .homeSearch, .logOutSearch{
  display: none;
 }
 
-.settingsMobileDashboard{
+.settingsMobileDashboard, .settingsMobileSearch{
   position: absolute;
   right: 30px;
   top: 60px
 }
-.searchbuttonMobileDashboard{
+.searchbuttonMobileDashboard, .homeMobileSearch{
   position: absolute;
   right:80px;
   top: 60px
 }
 
-.logOutMobileDashboard{
+.logOutMobileDashboard, .logOutMobileSearch{
   position: absolute;
   right: 130px;
   top: 60px
 
-}
-
-
-
-
-.heart{
-  position: absolute;
-  text-align: right;
-  margin-top: -50px;
-  right: 30px;
 }
 
 
