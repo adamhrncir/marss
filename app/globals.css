@@ -11,7 +11,9 @@ p, .col-sm-3, .col-sm-7 ,h1{
   font-family: 'Source Serif Pro', serif;
 }
 
-
+.form-check{
+  color : white;
+}
 
 .col-sm-2 .ilustracnifoto{
   margin-top: 50px;
@@ -39,6 +41,70 @@ hr{
 
   width: 100%;
   height: 100%;
+}
+
+
+.form-control:focus {
+  border-color: rgb(219, 62, 37);
+  box-shadow: inset 0 1px 1px rgb(219, 62, 37), 0 0 8px rgb(219, 62, 37);
+
+}
+
+.btn{
+  background-color: rgb(219, 62, 37);
+  border-color: rgb(219, 62, 37);
+  color: white;
+
+}
+
+.form-check-input[type="radio"] {
+  background-color: rgb(219, 62, 37);
+  color: rgb(219, 62, 37);
+}
+
+.home, .searchbutton, .logOut{
+  margin-top: 50px;
+  
+}
+
+
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
+}
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: block;
+}
+
+.home, .searchbutton, .logOut{
+ display: none;
+}
+
+.homeMobile{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.searchbuttonMobile{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobile{
+  position: absolute;
+  right: 130px;
+  top: 60px
+
+}
+
 }
 
 .form-control:focus {

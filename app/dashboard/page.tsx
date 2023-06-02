@@ -74,7 +74,7 @@ export default async function dashboardPage() {
 
   <div className="col-sm-1">
     <div className="settingsDashboard">
-    <Link href="/settings">
+    <Link href="/dashboard/settings">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-gear-fill"></i>
   Settings
@@ -82,7 +82,7 @@ export default async function dashboardPage() {
   </Link> 
       </div>
       <div className="settingsMobileDashboard">
-    <Link href="/settings">
+    <Link href="/dashboard/settings">
   <button type="button" className="btn btn-sm btn-outline-light">
   <i className="bi bi-gear-fill"></i>
   </button>
