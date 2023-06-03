@@ -107,8 +107,7 @@ export default function Home() {
 
 <form action="/changePassword" method="post">
   <div className="form-group">
-    <input type="password" className="form-control" id="oldPassword"  placeholder="Old password"/>
-<br></br>
+   
     <input type="password" className="form-control" id="newPassword"  placeholder="New password"/>
     <br></br>
     <input type="password" className="form-control" id="newPasswordAgin"  placeholder="New password again"/>
