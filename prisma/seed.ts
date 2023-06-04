@@ -16,29 +16,29 @@ async function main() {
     })
     
     const rss = await prisma.rss.upsert({
-        where: { url: 'www.superweb.cz/rss' },
+        where: { url: 'https://www.zive.cz/rss/' },
         update: {},
         create: {
-            website_name: 'prvniweb',
+            website_name: 'ZIVE',
             image: 'https://i.iinfo.cz/r/rss-88x31.gif',
             userId: 1,
-            url: 'www.superweb.cz/rss'
+            url: 'https://www.zive.cz/rss/'
         },
     })
 
     const rss2 = await prisma.rss.upsert({
-        where: { url: 'www.druhyweb.cz/rss' },
+        where: { url: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj' },
         update: {},
         create: {
-            website_name: 'druhyweb',
+            website_name: 'idnes',
             image: 'https://i.iinfo.cz/r/rss-88x31.gif',
             userId: 1,
-            url: 'www.druhyweb.cz/rss'
+            url: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj'
         },
     })
 
     const rss_content = await prisma.rss_content.upsert({
-        where: { guid: 'superweb.cz/123-456' },
+        where: { guid: 'https://www.zive.cz/rss/' },
         update: {},
         create: {
             rssUrl: 'www.superweb.cz/rss',
@@ -55,7 +55,7 @@ async function main() {
         where: { guid: 'druhyweb.cz/4651-456' },
         update: {},
         create: {
-            rssUrl: 'www.druhyweb.cz/rss',
+            rssUrl: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj',
             title: 'Nic se nestalo',
             link: 'www.druhyweb.cz/clanky/niczajimavyho',
             description: 'Jiny popisek',
@@ -69,7 +69,7 @@ async function main() {
         where: { guid: 'druhyweb.cz/4651-457' },
         update: {},
         create: {
-            rssUrl: 'www.druhyweb.cz/rss',
+            rssUrl: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj',
             title: 'Stalo se hodně',
             link: 'www.druhyweb.cz/clanky/vsechnosestalo',
             description: 'HODNĚ VĚCÍ',
