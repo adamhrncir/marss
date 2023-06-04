@@ -1,14 +1,11 @@
-
+'use client'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 
-import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../../components/rss-actions"
-import { authOptions } from '../../api/auth/[...nextauth]/route';
-
-import { getServerSession } from 'next-auth';
+import { useRef } from 'react'
 import { LogoutButton, LogoutButtonMobile } from '../auth'
-
+import { getSession } from "next-auth/react"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,25 +15,75 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 
-export default async function settingsPage() {
 
 
-  const session = await getServerSession(authOptions)
-  
+export default function settingsPage() {
+
+
+ async function getSess() {
+const session = await getSession()
+
+
   const stringsess = JSON.stringify(session)
   const parsed = JSON.parse(stringsess)
+  const user = String(parsed.user.email)
+  console.log(user)
 
-  const mail = String(parsed.user.email)
+  return parsed.user.email
 
-  const allFeeds = await fetchAllFeeds(mail)
-  const listAll = await fetchAll(mail)
-  const listStart = await fetchStart(mail, 'bá')
-  const listFavs = await fetchFavs(mail)
+  }
+
+  getSess();
+
+  const pass = useRef("");
+  const pass2 = useRef("");
+  const urlfeed = useRef("");
+  const feedName = useRef("");
+
+  const changePassword = async () => {
+
+      if (pass.current == pass2.current && pass.current != "") {
+
+          
+          const send = await fetch('/api/changePassword',{
+              method: 'POST',
+              body: JSON.stringify({ email, pass }),
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+          })
+
+          
+      }
+      else{
+          alert('The passwords do not match! >:(')
+      }
+
+  }
+
+  const addFeed = async () => {
+          const send = await fetch('/api/addFeed',{
+            method: 'POST',
+            body: JSON.stringify({ email, urlfeed, feedName }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+}
+
+const deleteFeed = async () => {
+  const send = await fetch('/api/deleteFeed',{
+    method: 'POST',
+    body: JSON.stringify({ email }),
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
+}
 
 
 
 
-  
 
   return (
 <>
@@ -59,7 +106,7 @@ export default async function settingsPage() {
     </Link>
     </div>
     </div>
-    <div className="col-sm-7">
+    <div className="col-sm-8">
       </div>
 
       <div className="col-sm-1">
@@ -72,23 +119,7 @@ export default async function settingsPage() {
     </div>
 
 
-    <div className="col-sm-1">
-      <div className="searchbutton">
-      <Link href="/dashboard/search">
-    <button type="button" className="btn btn-sm btn-outline-light">
-    <i className="bi bi-search"></i>
-    &nbsp;Search&nbsp;
-    </button>
-    </Link> 
-        </div>
-        <div className="searchbuttonMobile">
-      <Link href="/dashboard/search">
-    <button type="button" className="btn btn-sm btn-outline-light">
-    <i className="bi bi-search"></i>
-    </button>
-    </Link> 
-        </div>
-    </div>
+    
 
     <div className="col-sm-1">
       <div className="home">
@@ -119,19 +150,19 @@ export default async function settingsPage() {
 
 <form action="/addRSS" method="post">
   <div className="form-group">
-    <input type="url" className="form-control" id="URLadress"  placeholder="https://marss.cz/rss/ "/>
+    <input type="url" className="form-control" id="URLadress"  placeholder="https://marss.cz/rss/" onChange={(e) => (urlfeed.current = e.target.value)} required/>
 <br></br>
-    <input type="name" className="form-control" id="Name"  placeholder="Marss"/>
+    <input type="name" className="form-control" id="Name"  placeholder="Marss" onChange={(e) => (feedName.current = e.target.value)}/>
   </div>
 
 
 <br></br>
-  <button type="submit" className="btn btn-outline-light">Add URL address</button>
+  <button type="button" className="btn btn-outline-light" onClick={addFeed}>Add URL address</button>
 
 </form>
 <form action="/deleteAllRSS" method="post">
 <br></br>
-  <button type="submit" className="btn btn-outline-light">Dellete all feeds</button>
+  <button type="submit" className="btn btn-outline-light" onClick={deleteFeed}>Dellete all feeds</button>
 
 </form>
 
@@ -145,17 +176,19 @@ export default async function settingsPage() {
 <form action="/changePassword" method="post">
   <div className="form-group">
    
-    <input type="password" className="form-control" id="newPassword"  placeholder="New password"/>
+    <input type="password" className="form-control" id="newPassword"  placeholder="New password" onChange={(e) => (pass.current = e.target.value)} required/>
     <br></br>
-    <input type="password" className="form-control" id="newPasswordAgin"  placeholder="New password again"/>
+    <input type="password" className="form-control" id="newPasswordAgin"  placeholder="New password again" onChange={(e) => (pass2.current = e.target.value)} required/>
   </div>
   <br></br>
-  <button type="submit" className="btn btn-outline-light">Change password</button>
+  <button type="button" className="btn btn-outline-light" onClick={changePassword}>Change password</button>
 
 
 </form>
 
 <hr></hr>
+
+{/*
 
 <h1>Weather</h1>
 <p>To change your city to show weather write your new city</p>
@@ -172,15 +205,10 @@ export default async function settingsPage() {
 
 <hr></hr>
 
+*/}
+
 </div>
 </>
   )
-}
-function fetchDataFromSource() {
-  throw new Error('Function not implemented.')
-}
-
-function setFeeds(allFeeds: void) {
-  throw new Error('Function not implemented.')
 }
 

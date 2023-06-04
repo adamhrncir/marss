@@ -227,10 +227,18 @@ body {
 
 .logOutMobileDashboard, .logOutMobileSearch{
   position: absolute;
-  right: 130px;
+  right: 80px;
   top: 60px
 
 }
+.logOutMobile{
+  position: absolute;
+  right: 80px;
+  top: 60px
+
+}
+
+
 
 
 }

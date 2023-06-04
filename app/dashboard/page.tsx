@@ -43,7 +43,7 @@ export default async function dashboardPage() {
     
   </div>
   </div>
-  <div className="col-sm-7">
+  <div className="col-sm-8">
     
   </div>
 
@@ -59,23 +59,7 @@ export default async function dashboardPage() {
 
 
 
-  <div className="col-sm-1">
-    <div className="searchbuttonDashboard">
-    <Link href="/dashboard/search">
-  <button type="button" className="btn btn-sm btn-outline-light">
-  <i className="bi bi-search"></i>
-  &nbsp;Search&nbsp;
-  </button>
-  </Link> 
-      </div>
-      <div className="searchbuttonMobileDashboard">
-    <Link href="/dashboard/search">
-  <button type="button" className="btn btn-sm btn-outline-light">
-  <i className="bi bi-search"></i>
-  </button>
-  </Link> 
-      </div>
-  </div>
+
 
 
   <div className="col-sm-1">
