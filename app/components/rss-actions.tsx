@@ -114,6 +114,7 @@ export async function storeAllFeeds(email: string){
       
       console.log(obj2[i].url)
       
+      const userId = obj.id
 
       await fetch('https://www.zive.cz/rss/')
         .then(response => {
@@ -135,7 +136,7 @@ export async function storeAllFeeds(email: string){
               var description = result.rss.channel[0].item[x].description[0]
               var guid = result.rss.channel[0].item[x].guid[0]._
               
-              createContent(title, link, description, guid)
+              createContent(title, link, description, guid, userId)
               
             }
           });
@@ -147,7 +148,7 @@ export async function storeAllFeeds(email: string){
   
 }
 
-async function createContent(title: string, link: string, description: string, guid: string){
+async function createContent(title: string, link: string, description: string, guid: string, userId: any){
 
   const createContent = await prisma.rss_content.create({
     data: {
@@ -155,6 +156,7 @@ async function createContent(title: string, link: string, description: string, g
       link,
       description,
       guid,
+      userId
     },
   });
   console.log("created: " + createContent)
