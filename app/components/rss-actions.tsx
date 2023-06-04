@@ -15,8 +15,6 @@ export async function fetchAllFeeds(email: string){
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
-    
-
     return obj2
 }
 
@@ -35,10 +33,12 @@ export async function fetchAll(email: string) {
     const obj2 = JSON.parse(stringrss)
 
     const rss_content = await prisma.rss_content
-    .findMany({ where: { url: obj2.rss_contentUrl } })
+    .findMany({ where: { rssUrl: obj2.url } })
 
     const stringrss_content = JSON.stringify(rss_content)
     const obj3 = JSON.parse(stringrss_content)
+
+    console.log(obj2[0].url)
 
     return obj3
 }
@@ -69,34 +69,6 @@ export async function fetchImg(contentUrl: string) {
   return obj.image
 }
 
-export async function fetchIfFav(contentUrl: string) {
-
-  const rss = await prisma.rss
-  .findFirst({ where: { rss_contentUrl: contentUrl } })
-
-  const stringrss = JSON.stringify(rss)
-  const obj = JSON.parse(stringrss)
-
-  console.log(obj.favourite)  
-
-  return (obj.favourite)
-}
-
-export async function FavDisplay(favourite: boolean) {
-
-  let image
-
-  if (favourite){
-    image = 'favourite.jpg'
-  }
-  else{
-    image = 'notfavourite.jpg'
-  }
-
-  console.log(image)
-  return image
-}
-
 
 export async function fetchStart(email: string, search: string) {
 
@@ -123,7 +95,7 @@ export async function fetchStart(email: string, search: string) {
     return obj3
 }
 
-export async function fetchFavs(email: string) {
+export async function storeAllFeeds(email: string){
 
   const userID = await prisma.user
     .findUnique({ where: { email: email } })
@@ -132,31 +104,59 @@ export async function fetchFavs(email: string) {
     const obj = JSON.parse(stringid)
 
     const rss = await prisma.rss
-    .findMany({ where: { userId: obj.id , favourite: true  } })
+    .findMany({ where: { userId: obj.id } })
 
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
     
+    for (var i = 0; i < 1; i++) {
+      
+      console.log(obj2[i].url)
+      
 
-    return obj2
+      await fetch('https://www.zive.cz/rss/')
+        .then(response => {
+          if (response.ok) {
+            return response.text();
+          }
+        })
+        .then(content => {
+          
+          var parseString = require('xml2js').parseString;
+          parseString(content, function(err: any, result: any){
+            console.log(result.rss.channel[0].item[0].title[0]);
+            console.log(Object.keys(result.rss.channel[0].item).length)
+            
+            var max = Object.keys(result.rss.channel[0].item).length //max lenght for forloop
+            for (var x = 0; x < max; x++){
+              var title = result.rss.channel[0].item[x].title[0]
+              var link = result.rss.channel[0].item[x].link[0]
+              var description = result.rss.channel[0].item[x].description[0]
+              var guid = result.rss.channel[0].item[x].guid[0]._
+              
+              createContent(title, link, description, guid)
+              
+            }
+          });
+
+        })
+
+    }
+  
+  
 }
 
-export async function fetchAllTags(email: string) {
+async function createContent(title: string, link: string, description: string, guid: string){
 
-  const userID = await prisma.user
-    .findUnique({ where: { email: email } })
+  const createContent = await prisma.rss_content.create({
+    data: {
+      title,
+      link,
+      description,
+      guid,
+    },
+  });
+  console.log("created: " + createContent)
 
-    const stringid = JSON.stringify(userID)
-    const obj = JSON.parse(stringid)
-
-    const rss_tag = await prisma.rss_tag
-    .findMany({ where: { userId: obj.id } })
-
-    const stringrss = JSON.stringify(rss_tag)
-    const obj2 = JSON.parse(stringrss)
-
-    
-
-    return obj2
 }
