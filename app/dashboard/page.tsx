@@ -87,21 +87,22 @@ export default async function dashboardPage() {
           <><Link href={listAll[0].link} >
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
-                <Image
-                  src="/images/test.jpg"
-                  width={100}
-                  height={130}
+                <img
+                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  width="100%"
+                  height="100%"
                   alt="ilustracnifoto"
-                  layout="responsive" />
+                  />
               </div>
               <div className="col-sm-7 weblogo">
                 <p>
-                  <Image
-                    src="/images/rootlogo.gif"
-                    width={50}
-                    height={20}
-                    alt="logo" />{' '}
-                { await fetchName( await allFeeds[0].rss_contentUrl ) }
+                  <img
+                    
+                    src={await allFeeds[0].image}
+                    width="auto"
+                    height="15px"
+                    alt="logo" />
+                  { await fetchName( await allFeeds[0].rss_contentUrl ) }
                 </p>
                 <h4>{listAll[0].title}</h4>
               </div>
@@ -116,19 +117,18 @@ export default async function dashboardPage() {
           <Link href={listAll[1].link} >
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
-                <Image
-                  src="/images/1.jpg"
-                  width={100}
-                  height={130}
-                  alt="ilustracnifoto"
-                  layout="responsive" />
+                <img
+                  src="/images/test.jpg"
+                  width="100%"
+                  height="100%"
+                  alt="ilustracnifoto" />
               </div>
               <div className="col-sm-7 weblogo">
                 <p>
-                  <Image
-                    src="/images/rootlogo.gif"
-                    width={50}
-                    height={20}
+                  <img
+                    src="/images/idnes.gif"
+                    width="auto"
+                    height="15px"
                     alt="logo" />{' '}
                 { await fetchName( await allFeeds[1].rss_contentUrl ) }
                 </p>

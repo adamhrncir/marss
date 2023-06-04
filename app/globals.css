@@ -199,7 +199,10 @@ body {
   }
 
 
-
+  .ilustracnifoto{
+    max-height: 100px;
+    max-width: 100px;
+  }
 
 @media only screen and (max-width: 600px) {
 .logo{

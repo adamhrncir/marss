@@ -21,19 +21,40 @@ export default function settingsPage() {
 
 
  async function getSess() {
-const session = await getSession()
+/*const session = await getSession()
 
 
   const stringsess = JSON.stringify(session)
   const parsed = JSON.parse(stringsess)
-  const user = String(parsed.user.email)
-  console.log(user)
+  //const user = String(parsed.user.email)
+  console.log(parsed)
+  console.log(session)
+*/
 
-  return parsed.user.email
+
+
+// return user 
 
   }
 
+  async function logJSONData() {
+    const response = await fetch("http://localhost:3000/api/auth/session");
+    const jsonData = await response.json();
+
+    const stringrss = JSON.stringify(jsonData)
+    const obj2 = JSON.parse(stringrss)
+    console.log(jsonData);
+
+
+
+  }
+
+
+const email = "test@example.com"
+
+
   getSess();
+  logJSONData();
 
   const pass = useRef("");
   const pass2 = useRef("");
@@ -60,6 +81,8 @@ const session = await getSession()
       }
 
   }
+
+  //const email = getSess();
 
   const addFeed = async () => {
           const send = await fetch('/api/addFeed',{
