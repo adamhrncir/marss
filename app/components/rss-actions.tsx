@@ -136,6 +136,7 @@ export async function storeAllFeeds(email: string){
               var description = result.rss.channel[0].item[x].description[0]
               var guid = result.rss.channel[0].item[x].guid[0]._
               
+              
               createContent(title, link, description, guid, userId)
               
             }
