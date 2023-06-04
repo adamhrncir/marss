@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../components/rss-actions";
 import { authOptions } from '../api/auth/[...nextauth]/route';
+
 import { getServerSession } from 'next-auth';
 import { LogoutButton, LogoutButtonMobile } from '../dashboard/auth'
 
@@ -14,11 +15,16 @@ export default async function dashboardPage() {
 
   const session = await getServerSession(authOptions)
   
-  const allFeeds = await fetchAllFeeds('test@example.com')
-  const listAll = await fetchAll('test@example.com')
-  const listStart = await fetchStart('test@example.com', 'bá')
-  const listFavs = await fetchFavs('test@example.com')
-  
+  const stringsess = JSON.stringify(session)
+  const parsed = JSON.parse(stringsess)
+
+  const mail = String(parsed.user.email)
+
+  const allFeeds = await fetchAllFeeds(mail)
+  const listAll = await fetchAll(mail)
+  const listStart = await fetchStart(mail, 'bá')
+  const listFavs = await fetchFavs(mail)
+
   return (
     <>
       <div className='main'>
@@ -127,7 +133,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <Image
-                  src="/images/test.jpg"
+                  src="/images/1.jpg"
                   width={100}
                   height={130}
                   alt="ilustracnifoto"
@@ -148,15 +154,21 @@ export default async function dashboardPage() {
 
             </div>
           </Link>
+         
+          <hr></hr>
 
-          
+
+
+
+
+
           <div>
          
           </div></>
 
         
 
-        <hr />
+       
 
 
 

@@ -1,17 +1,49 @@
+
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import { LogoutButton, LogoutButtonMobile, LoginButton } from '../auth'
+
+import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../../components/rss-actions"
+import { authOptions } from '../../api/auth/[...nextauth]/route';
+
+import { getServerSession } from 'next-auth';
+import { LogoutButton, LogoutButtonMobile } from '../auth'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+
+
+
+
+
+
+export default async function settingsPage() {
+
+
+  const session = await getServerSession(authOptions)
+  
+  const stringsess = JSON.stringify(session)
+  const parsed = JSON.parse(stringsess)
+
+  const mail = String(parsed.user.email)
+
+  const allFeeds = await fetchAllFeeds(mail)
+  const listAll = await fetchAll(mail)
+  const listStart = await fetchStart(mail, 'bá')
+  const listFavs = await fetchFavs(mail)
+
+
+
+
+  
+
   return (
 <>
 <div className='main'>
 
 
+    
   <div className="row">
   
     <div className="col-sm-2">
@@ -97,6 +129,11 @@ export default function Home() {
   <button type="submit" className="btn btn-outline-light">Add URL address</button>
 
 </form>
+<form action="/deleteAllRSS" method="post">
+<br></br>
+  <button type="submit" className="btn btn-outline-light">Dellete all feeds</button>
+
+</form>
 
 
 
@@ -129,7 +166,7 @@ export default function Home() {
     </div>
   <br></br>
   <button type="submit" className="btn btn-outline-light">Change city</button>
-
+  
 
 </form>
 
@@ -139,3 +176,11 @@ export default function Home() {
 </>
   )
 }
+function fetchDataFromSource() {
+  throw new Error('Function not implemented.')
+}
+
+function setFeeds(allFeeds: void) {
+  throw new Error('Function not implemented.')
+}
+
