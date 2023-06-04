@@ -38,10 +38,10 @@ async function main() {
     })
 
     const rss_content = await prisma.rss_content.upsert({
-        where: { guid: 'https://www.zive.cz/rss/' },
+        where: { guid: 'superweb.cz/123-456' },
         update: {},
         create: {
-            rssUrl: 'www.superweb.cz/rss',
+            rssUrl: 'https://www.zive.cz/rss/',
             title: 'Bába pod kořenem',
             link: 'www.superweb.cz/clanky/babapodkorenem',
             description: 'babka spadla pod koren. 40 minut bila do dreva, nez si ji nekdo vsimnul.',
