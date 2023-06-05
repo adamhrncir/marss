@@ -11,8 +11,22 @@ p, .col-sm-3, .col-sm-7 ,h1{
   font-family: 'Source Serif Pro', serif;
 }
 
+.image{
+  width: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 15%;
+}
+
 .form-check{
   color : white;
+}
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .col-sm-2 .ilustracnifoto{
@@ -42,6 +56,14 @@ hr{
   width: 100%;
   height: 100%;
 }
+
+.register{
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
 
 
 .form-control:focus {
@@ -126,8 +148,6 @@ hr{
 
 }
 
-
-
 body {
   background-color: rgb(67, 67, 65);
 }
@@ -147,57 +167,6 @@ body {
 .settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard,.settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: none;
 }
-
-
-
-
-
-
-
-.search{
-  position: relative;
-  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-    
-  }
- 
-  .search input{
- 
-   height: 60px;
-   text-indent: 25px;
-   border: 2px solid #d6d4d4;
- 
- 
-  }
- 
- 
-  .search input:focus{
- 
-   box-shadow: none;
-   border: 2px solid rgb(219, 62, 37);
- 
- 
-  }
- 
-  .search .bi-search{
- 
-   position: absolute;
-   top: 19px;
-   left: 16px;
- 
-  }
- 
- 
-  .search button{
- 
-   position: absolute;
-   top: 5px;
-   right: 5px;
-   height: 50px;
-   width: 110px;
-   background: rgb(219, 62, 37);
- 
-  }
-
 
   .ilustracnifoto{
     max-height: 100px;
@@ -240,8 +209,5 @@ body {
   top: 60px
 
 }
-
-
-
 
 }
