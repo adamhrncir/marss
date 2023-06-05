@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useRef } from 'react'
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +28,7 @@ export default function Home() {
                 },
             })
 
-            redirect('/auth/login');
+            
             
         }
         else{
@@ -73,7 +73,9 @@ export default function Home() {
     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password again" onChange={(e) => (pass2.current = e.target.value)}></input>
   </div>
 <br></br>
+<Link href="/auth/login" prefetch={false}>
 <button type="button" className="btn btn-outline-light btn-lg" onClick={onSubmit}>Register</button>
+</Link>
 </form>
 
 </div>
