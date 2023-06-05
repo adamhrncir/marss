@@ -28,14 +28,14 @@ model rss {
 
 model rss_content {
   imageUrl    String?
-  title       String?
-  link        String?
-  description String?
+  title       String
+  link        String
+  description String
   userId      Int
   guid        String  @id
   fetchtime   Int?
   rss         rss?    @relation(fields: [rssUrl], references: [url])
-  rssUrl      String?
+  rssUrl      String
 }
 
 model weather {

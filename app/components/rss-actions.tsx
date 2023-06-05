@@ -46,7 +46,7 @@ export async function fetchAll(email: string) {
 export async function fetchName(contentUrl: string) {
 
   const rss = await prisma.rss
-  .findFirst({ where: { rss_contentUrl: contentUrl } })
+  .findFirst({ where: { url: contentUrl } })
 
   const stringrss = JSON.stringify(rss)
   const obj = JSON.parse(stringrss)
@@ -59,7 +59,7 @@ export async function fetchName(contentUrl: string) {
 export async function fetchImg(contentUrl: string) {
 
   const rss = await prisma.rss
-  .findFirst({ where: { rss_contentUrl: contentUrl } })
+  .findFirst({ where: { url: contentUrl } })
 
   const stringrss = JSON.stringify(rss)
   const obj = JSON.parse(stringrss)
@@ -109,14 +109,16 @@ export async function storeAllFeeds(email: string){
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
-    
-    for (var i = 0; i < 1; i++) {
+    var rssCount = await prisma.rss.count();
+    console.log(rssCount);
+
+    for (var i = 0; i < rssCount; i++) {
       
       console.log(obj2[i].url)
       
       const userId = obj.id
 
-      await fetch('https://www.zive.cz/rss/')
+      await fetch(obj2[i].url)
         .then(response => {
           if (response.ok) {
             return response.text();
@@ -135,9 +137,10 @@ export async function storeAllFeeds(email: string){
               var link = result.rss.channel[0].item[x].link[0]
               var description = result.rss.channel[0].item[x].description[0]
               var guid = result.rss.channel[0].item[x].guid[0]._
+              var rssUrl = obj2[i].url
               
               
-              createContent(title, link, description, guid, userId)
+              createContent(title, link, description, guid, userId, rssUrl)
               
             }
           });
@@ -149,7 +152,7 @@ export async function storeAllFeeds(email: string){
   
 }
 
-async function createContent(title: string, link: string, description: string, guid: string, userId: any){
+async function createContent(title: string, link: string, description: string, guid: string, userId: any, rssUrl: string){
 
   const createContent = await prisma.rss_content.create({
     data: {
@@ -157,7 +160,8 @@ async function createContent(title: string, link: string, description: string, g
       link,
       description,
       guid,
-      userId
+      userId,
+      rssUrl
     },
   });
   console.log("created: " + createContent)

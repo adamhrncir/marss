@@ -37,50 +37,6 @@ async function main() {
         },
     })
 
-    const rss_content = await prisma.rss_content.upsert({
-        where: { guid: 'superweb.cz/123-456' },
-        update: {},
-        create: {
-            rssUrl: 'https://www.zive.cz/rss/',
-            title: 'Bába pod kořenem',
-            link: 'www.superweb.cz/clanky/babapodkorenem',
-            description: 'babka spadla pod koren. 40 minut bila do dreva, nez si ji nekdo vsimnul.',
-            userId: 1,
-            guid: 'superweb.cz/123-456',
-            fetchtime: 1685538618,
-        }
-    })
-
-    const rss_content2 = await prisma.rss_content.upsert({
-        where: { guid: 'druhyweb.cz/4651-456' },
-        update: {},
-        create: {
-            rssUrl: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj',
-            title: 'Nic se nestalo',
-            link: 'www.druhyweb.cz/clanky/niczajimavyho',
-            description: 'Jiny popisek',
-            userId: 1,
-            guid: 'druhyweb.cz/4651-456',
-            fetchtime: 1685542813,
-        }
-    })
-
-    const rss_content3 = await prisma.rss_content.upsert({
-        where: { guid: 'druhyweb.cz/4651-457' },
-        update: {},
-        create: {
-            rssUrl: 'https://servis.idnes.cz/rss.aspx?c=zpravodaj',
-            title: 'Stalo se hodně',
-            link: 'www.druhyweb.cz/clanky/vsechnosestalo',
-            description: 'HODNĚ VĚCÍ',
-            userId: 1,
-            guid: 'druhyweb.cz/4651-457',
-            fetchtime: 1685542943,
-        }
-    })
-
-    
-
     console.log('uspesny seed')
 }
 main()
