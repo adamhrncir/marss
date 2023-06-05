@@ -19,14 +19,14 @@ export default function homePage() {
       <div className="row text-center">
       <div className="col-sm-6">
       <br></br>
-      <Link href="/target-page">
+      <Link href="/auth/login">
       <button type="button" className="btn btn-outline-light btn-lg">Login</button>
       </Link>
       
       </div>
       <div className="col-sm-6">
       <br></br>
-      <Link href="/register">
+      <Link href="/auth/register">
       <button type="button" className="btn btn-outline-light btn-lg">Register</button>
       </Link>
       </div>
@@ -34,9 +34,3 @@ export default function homePage() {
     </div>
 
 </div>
-
-
-
-    </div>
-  );
-}
