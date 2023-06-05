@@ -1,13 +1,10 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../components/rss-actions";
 import { authOptions } from '../api/auth/[...nextauth]/route';
 
 import { getServerSession } from 'next-auth';
 import { LogoutButton, LogoutButtonMobile } from '../dashboard/auth'
-
-const inter = Inter({ subsets: ['latin'] })
 
 
 export default async function dashboardPage() {
