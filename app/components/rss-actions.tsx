@@ -64,7 +64,7 @@ export async function fetchImg(contentUrl: string) {
   const stringrss = JSON.stringify(rss)
   const obj = JSON.parse(stringrss)
 
-  
+  console.log(obj.image)
 
   return obj.image
 }
@@ -110,11 +110,9 @@ export async function storeAllFeeds(email: string){
     const obj2 = JSON.parse(stringrss)
 
     var rssCount = await prisma.rss.count();
-    console.log(rssCount);
 
     for (var i = 0; i < rssCount; i++) {
       
-      console.log(obj2[i].url)
       
       const userId = obj.id
 
@@ -124,13 +122,11 @@ export async function storeAllFeeds(email: string){
             return response.text();
           }
         })
-        .then(content => {
+        .then (content => {
           
           var parseString = require('xml2js').parseString;
           parseString(content, function(err: any, result: any){
-            console.log(result.rss.channel[0].item[0].title[0]);
-            console.log(Object.keys(result.rss.channel[0].item).length)
-            
+
             var max = Object.keys(result.rss.channel[0].item).length //max lenght for forloop
             for (var x = 0; x < max; x++){
               var title = result.rss.channel[0].item[x].title[0]
@@ -138,9 +134,22 @@ export async function storeAllFeeds(email: string){
               var description = result.rss.channel[0].item[x].description[0]
               var guid = result.rss.channel[0].item[x].guid[0]._
               var rssUrl = obj2[i].url
-              
-              
-              createContent(title, link, description, guid, userId, rssUrl)
+
+              try{
+                var imageUrl = result.rss.channel[0].item[x]['media:content'][0]['$']['url']
+              }
+              catch(err){
+                try {
+                  var imageUrl = result.rss.channel[0].item[x].enclosure[0].$.url
+                } catch (err) {
+                  try {
+                    var imageUrl = result.rss.channel[0].item[x]['szn:image'][0]['szn:url'][0]
+                  } catch (err) {
+                    var imageUrl = obj2[i].image
+                  }
+                }
+              }
+              createContent(title, link, description, guid, userId, rssUrl, imageUrl)
               
             }
           });
@@ -152,7 +161,7 @@ export async function storeAllFeeds(email: string){
   
 }
 
-async function createContent(title: string, link: string, description: string, guid: string, userId: any, rssUrl: string){
+async function createContent(title: string, link: string, description: string, guid: string, userId: any, rssUrl: string, imageUrl: string){
 
   const createContent = await prisma.rss_content.create({
     data: {
@@ -161,7 +170,8 @@ async function createContent(title: string, link: string, description: string, g
       description,
       guid,
       userId,
-      rssUrl
+      rssUrl,
+      imageUrl
     },
   });
   console.log("created: " + createContent)
