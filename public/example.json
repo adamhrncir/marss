@@ -1,0 +1,182 @@
+item: [
+  {
+    title: 'Dog steals a scooter in the centre of Prague',
+    link: '/dashboard/settings',
+    guid: 0,
+    image: '/public/0.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:15'
+},
+  {
+    title: 'High school student breaks world record in paper airplane folding',
+    link: '/dashboard/settings',
+    guid: 1,
+    image: '/public/1.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:14'
+},
+  {
+    title: 'Astronomers horrified: spaceship has docked at top observatory - Crew says it's a space drive-thru',
+    link: '/dashboard/settings',
+    guid: 2,
+    image: '/public/2.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:13'
+},
+  {
+    title: 'The trdelnik a local symbol: Prague residents start building a statue bigger than Prague Castle',
+    link: '/dashboard/settings',
+    guid: 3,
+    image: '/public/3.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:12'
+},
+  {
+    title: 'Mars discovered as the latest fashion destination - Travellers vie for bookings for holiday homes overlooking the red sands',
+    link: '/dashboard/settings',
+    guid: 4,
+    image: '/public/4.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:11'
+},
+  {
+    title: 'Czech astronomer discovers new planet, which he names Prague 2.0',
+    link: '/dashboard/settings',
+    guid: 5,
+    image: '/public/5.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:10'
+},
+  {
+    title: 'Brno expands metropolitan transport: flying trams and buses are the new trend in urban transport',
+    link: '/dashboard/settings',
+    guid: 6,
+    image: '/public/6.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:09'
+},
+  {
+    title: 'America surprises: humans have created the longest line of burgers',
+    link: '/dashboard/settings',
+    guid: 7,
+    image: '/public/7.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:08'
+},
+  {
+    title: 'Google has surpassed Sheldon Cooper himself: A new algorithm has calculated the infinity of Pi with absolute accuracy',
+    link: '/dashboard/settings',
+    guid: 8,
+    image: '/public/8.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:07'
+},
+  {
+    title: 'American won a gold medal in the sporting discipline - sliding',
+    link: '/dashboard/settings',
+    guid: 9,
+    image: '/public/9.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:06'
+},
+  {
+    title: 'Brno introduced a revolutionary transport system: Brno wine trams - a pleasant ride with wine tasting at every stop',
+    link: '/dashboard/settings',
+    guid: 10,
+    image: '/public/10.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:05'
+},
+  {
+    title: 'Brno has announced the creation of its own space programme: City plans to send first Brno man to Mars to bring Brno culture to space',
+    link: '/dashboard/settings',
+    guid: 11,
+    image: '/public/11.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:04'
+},
+  {
+    title: 'Aliens stole the statues from the Charles Bridge. They replaced them with alien statues',
+    link: '/dashboard/settings',
+    guid: 12,
+    image: '/public/12.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:03'
+},
+  {
+    title: 'The aliens have taken a liking to trdelnik',
+    link: '/dashboard/settings',
+    guid: 13,
+    image: '/public/13.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:02'},
+  {
+    title: 'A big jump for Kofola: The brand announces expansion to Mars and prepares to launch the first Kofola store on the red planet',
+    link: '/dashboard/settings',
+    guid: 14,
+    image: '/public/14.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:01'
+},
+  {
+    title: 'ČD surprises: a new line between Earth and Mars will allow travel between planets in just 30 minutes',
+    link: '/dashboard/settings',
+    guid: 15,
+    image: '/public/15.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:01:00'
+},
+  {
+    title: 'The world is celebrating. The Trdelnik has been officially selected for consumption in space',
+    link: '/dashboard/settings',
+    guid: 16,
+    image: '/public/16.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:00:59'
+},
+  {
+    title: 'The latest uniforms in Europe. The Czech Republic has upgraded its summer police uniforms',
+    link: '/dashboard/settings',
+    guid: 17,
+    image: '/public/17.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:00:58'
+},
+  {
+    title: 'Confusion in Brno. A pig drove a tram',
+    link: '/dashboard/settings',
+    guid: 18,
+    image: '/public/18.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:00:57'
+},
+  {
+    title: 'Czechs are going to Croatia. Five things not to forget at home',
+    link: '/dashboard/settings',
+    guid: 19,
+    image: '/public/19.jpg',
+    icon: '/public/logo.png',
+    name: 'MARSS',
+    pubDate: 'Mon, 05 Jun 1980 05:00:56'
+}
+ 
+]
