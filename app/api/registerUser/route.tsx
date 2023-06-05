@@ -1,5 +1,4 @@
 import { createUser } from "@/app/components/register";
-import { redirect } from "next/navigation";
 
 export async function POST(request: Request) {
 
@@ -11,20 +10,22 @@ export async function POST(request: Request) {
         const email = res.email.current
         const pass = res.pass.current
 
-        createUser(name, email, pass)
+        var output = await createUser(name, email, pass)
 
-        
+        if(output){
+            
+            return new Response('the user already exists'), {
+                status: 500,
+            }
 
+        }
+        else{
         return new Response('New user has been created! :)', {
             status: 201,
-             
+            
         })
-
+        }
     }
-    else{
-        return new Response('Something broke :(',{
-            status: 500
-        })
-    }
+    
     
 }

@@ -27,9 +27,11 @@ export default function Home() {
                     'Content-Type': 'application/json',
                 },
             })
+            
+            if(send.status == 500){
+              alert('Uživatel již existuje')
+            }
 
-            
-            
         }
         else{
             alert('The passwords do not match! >:(')
@@ -43,13 +45,15 @@ export default function Home() {
 
 <div className="center">
         <div className="image">
+        <Link href="/">
       <Image
         src="/images/logo.png"
         width={150}
         height={150}
         alt="logo"
         layout="responsive"
-      />
+        />
+        </Link>
       </div>
       </div>
 

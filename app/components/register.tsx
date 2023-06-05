@@ -5,6 +5,7 @@ import { hash } from 'bcrypt'
 
 export async function createUser(name: string, email: string, inputPass: string){
 
+    try{
 
     const pass = await hash(inputPass, 12)
 
@@ -15,5 +16,9 @@ export async function createUser(name: string, email: string, inputPass: string)
             password: pass
         }
     });
-
+    console.log(user)
+    }
+    catch(err){
+        return "uživatel již existuje"
+    }
 }
