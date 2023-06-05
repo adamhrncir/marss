@@ -1,9 +1,19 @@
-p, .col-sm-3, .col-sm-7{
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
+
+p, .col-sm-3, .col-sm-7 ,h1{
   color: white;
   font-family: 'Source Serif Pro', serif;
 }
 
-
+.form-check{
+  color : white;
+}
 
 .col-sm-2 .ilustracnifoto{
   margin-top: 50px;
@@ -25,19 +35,76 @@ hr{
   padding-left: 15px;
   max-width: 1000px;
 }
-.image{
-  width: 20%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  margin-bottom: 15%;
+.logo{
+  margin-top: 20px;
+
+
+  width: 100%;
+  height: 100%;
 }
-.register{
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+
+
+.form-control:focus {
+  border-color: rgb(219, 62, 37);
+  box-shadow: inset 0 1px 1px rgb(219, 62, 37), 0 0 8px rgb(219, 62, 37);
+
+}
+
+.btn{
+  background-color: rgb(219, 62, 37);
+  border-color: rgb(219, 62, 37);
   color: white;
+
+}
+
+.form-check-input[type="radio"] {
+  background-color: rgb(219, 62, 37);
+  color: rgb(219, 62, 37);
+}
+
+.home, .searchbutton, .logOut{
+  margin-top: 50px;
+  
+}
+
+
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
+}
+
+.homeMobile, .searchbuttonMobile, .logOutMobile{
+  display: block;
+}
+
+.home, .searchbutton, .logOut{
+ display: none;
+}
+
+.homeMobile{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.searchbuttonMobile{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobile{
+  position: absolute;
+  right: 130px;
+  top: 60px
+
+}
+
 }
 
 .form-control:focus {
@@ -52,42 +119,129 @@ hr{
   color: white;
 
 }
-.center{
-  text-align: center;
-}
 
-p, .col-sm-3, .col-sm-7{
-  color: white;
-  font-family: 'Source Serif Pro', serif;
-}
-
-
-
-.col-sm-2 .ilustracnifoto{
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard ,.settingsSearch, .homeSearch, .logOutSearch{
   margin-top: 50px;
+  
+
 }
 
-span{
+
+
+body {
+  background-color: rgb(67, 67, 65);
+}
+
+.btn-link{
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  
+}
+
+.btn-link:hover{
   color: rgb(219, 62, 37);
 }
 
-hr{
-  height:3px;
-  border-width:0;
-  background-color:rgb(219, 62, 37);
+
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard,.settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
+  display: none;
 }
-.main{
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  max-width: 1000px;
+
+
+
+
+
+
+
+.search{
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    
+  }
+ 
+  .search input{
+ 
+   height: 60px;
+   text-indent: 25px;
+   border: 2px solid #d6d4d4;
+ 
+ 
+  }
+ 
+ 
+  .search input:focus{
+ 
+   box-shadow: none;
+   border: 2px solid rgb(219, 62, 37);
+ 
+ 
+  }
+ 
+  .search .bi-search{
+ 
+   position: absolute;
+   top: 19px;
+   left: 16px;
+ 
+  }
+ 
+ 
+  .search button{
+ 
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   height: 50px;
+   width: 110px;
+   background: rgb(219, 62, 37);
+ 
+  }
+
+
+  .ilustracnifoto{
+    max-height: 100px;
+    max-width: 100px;
+  }
+
+@media only screen and (max-width: 600px) {
+.logo{
+  width: 30%;
 }
-.image{
-  width: 25%;
+
+.settingsMobileDashboard, .searchbuttonMobileDashboard, .logOutMobileDashboard, .settingsMobileSearch, .homeMobileSearch, .logOutMobileSearch{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  margin-bottom: 25%;
+}
+
+.settingsDashboard, .searchbuttonDashboard, .logOutDashboard, .settingsSearch, .homeSearch, .logOutSearch{
+ display: none;
+}
+
+.settingsMobileDashboard, .settingsMobileSearch{
+  position: absolute;
+  right: 30px;
+  top: 60px
+}
+.searchbuttonMobileDashboard, .homeMobileSearch{
+  position: absolute;
+  right:80px;
+  top: 60px
+}
+
+.logOutMobileDashboard, .logOutMobileSearch{
+  position: absolute;
+  right: 80px;
+  top: 60px
+
+}
+.logOutMobile{
+  position: absolute;
+  right: 80px;
+  top: 60px
+
+}
+
+
+
+
 }

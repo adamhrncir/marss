@@ -7,5 +7,14 @@ export const LoginButton = () => {
 }
 
 export const LogoutButton = () => {
-    return <button onClick={() => signOut()}>Sign out</button>
+    return <button type="button" className="btn btn-sm btn-outline-light" onClick={() => signOut()}> 
+    <i className="bi bi-box-arrow-right"></i><br></br>
+    Log&nbsp;out
+    </button>
+}
+
+export const LogoutButtonMobile = () => {
+    return <button type="button" className="btn btn-sm btn-outline-light" onClick={() => signOut()}> 
+    <i className="bi bi-box-arrow-right"></i><br></br>
+    </button>
 }
