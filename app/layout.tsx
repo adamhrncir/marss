@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata = {
   title: 'MARSS',
-  description: 'The common place for your apps',
+  description: 'The RSS feed',
 }
 
 export default function RootLayout({ children }: any) {

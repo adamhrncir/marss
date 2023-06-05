@@ -1,12 +1,36 @@
-import { LoginButton, LogoutButton } from "./components/auth";
+import Image from 'next/image'
+import Link from 'next/link';
+import { Inter } from 'next/font/google'
 
-export default async function homePage() {
-
+export default function homePage() {
   return (
-    <div className="container text-center m-auto mt-2">
-      <LoginButton />
-      <LogoutButton />
-      <h1>Welcome!</h1>
+    <div className="main">
+      
+      <div className="center">
+        <div className="image">
+      <Image
+        src="/images/logo.png"
+        width={150}
+        height={150}
+        alt="logo"
+        layout="responsive"
+      />
+      </div>
+      <div className="row text-center">
+      <div className="col-sm-6">
+      <br></br>
+      <Link href="/auth/login">
+      <button type="button" className="btn btn-outline-light btn-lg">Login</button>
+      </Link>
+      
+      </div>
+      <div className="col-sm-6">
+      <br></br>
+      <Link href="/auth/register">
+      <button type="button" className="btn btn-outline-light btn-lg">Register</button>
+      </Link>
+      </div>
+
     </div>
-  );
-}
+
+</div>
