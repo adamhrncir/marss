@@ -9,8 +9,10 @@ export async function POST(request: Request) {
         const email = res.email.current
         const feedUrl = res.feedUrl.current
         const feedName = res.feedName.current
+        var fetchFavicon = require('@meltwater/fetch-favicon').fetchFavicon
+        const image = fetchFavicon(feedUrl)
 
-        addFeed(email, feedUrl, feedName)
+        addFeed(email, feedUrl, feedName, image)
 
         return new Response('Password changed :)', {
             status: 200,    

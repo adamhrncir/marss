@@ -19,7 +19,7 @@ export async function changePass(email: string, inputPass: string){
 
 }
 
-export async function addFeed(email: string, feedUrl: string, feedName: string) {
+export async function addFeed(email: string, feedUrl: string, feedName: string, image: string) {
     
     const userID = await prisma.user
     .findUnique({ where: { email: email } })
@@ -37,6 +37,7 @@ export async function addFeed(email: string, feedUrl: string, feedName: string) 
         create: {
             website_name: feedName,
             url: feedUrl,
+            image,
             userId: user
         },
     })
