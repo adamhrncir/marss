@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth";
 import { redirect } from 'next/navigation';
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import { NextAuthProvider } from "./providers";
 
 export default async function RootLayout({ children }: any) {
 
@@ -12,6 +13,6 @@ export default async function RootLayout({ children }: any) {
 
     return (
         
-          <section>{children}</section>
+          <NextAuthProvider>{children}</NextAuthProvider>
     );
   }
