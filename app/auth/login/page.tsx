@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { signIn } from 'next-auth/react'
 import { useRef } from 'react'
+import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,23 +22,24 @@ export default function Home() {
         email:email.current,
         password:pass.current,
         redirect:true,
-        callbackUrl:"/dashboard"
+        callbackUrl: "/dashboard"
     })
   }
   
-
   return (
 <div className='main'>
 
 <div className="center">
         <div className="image">
+          <Link href="/">
       <Image
         src="/images/logo.png"
         width={150}
         height={150}
         alt="logo"
         layout="responsive"
-      />
+        />
+          </Link>
       </div>
       </div>
 
