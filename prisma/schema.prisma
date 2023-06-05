@@ -8,45 +8,34 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  email     String    @unique
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
   password  String
   name      String?
   feeds     rss[]
-  tags      rss_tag[]
-  weather   weather?  @relation(fields: [weatherId], references: [id])
+  weather   weather? @relation(fields: [weatherId], references: [id])
   weatherId Int?
 }
 
 model rss {
-  id             Int         @id @default(autoincrement())
-  website_name   String
-  image          String?
-  favourite      Boolean     @default(false)
-  User           User        @relation(fields: [userId], references: [id])
-  userId         Int
-  rss_content    rss_content @relation(fields: [rss_contentUrl], references: [url])
-  rss_contentUrl String
-  rss_tag        rss_tag?    @relation(fields: [rss_tagId], references: [id])
-  rss_tagId      Int?
+  website_name String
+  image        String?
+  url          String        @id
+  User         User          @relation(fields: [userId], references: [id])
+  userId       Int
+  articles     rss_content[]
 }
 
 model rss_content {
-  url         String @id @unique
+  imageUrl    String?
   title       String
   link        String
   description String
-  guid        String @unique
-  fetchtime   Int
-  feeds       rss[]
-}
-
-model rss_tag {
-  id     Int    @id @default(autoincrement())
-  name   String
-  rss    rss[]
-  User   User   @relation(fields: [userId], references: [id])
-  userId Int
+  userId      Int
+  guid        String  @id
+  fetchtime   Int?
+  rss         rss?    @relation(fields: [rssUrl], references: [url])
+  rssUrl      String
 }
 
 model weather {
