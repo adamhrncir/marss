@@ -5,15 +5,22 @@ import { hash } from 'bcrypt'
 
 export async function changePass(email: string, inputPass: string){
 
-
     const pass = await hash(inputPass, 12)
 
+    const userID = await prisma.user
+    .findUnique({ where: { email: email } })
+
+    const stringid = JSON.stringify(userID)
+    const obj = JSON.parse(stringid)
+
+    const userId = obj.id;
+
     const user = await prisma.user.update({
+        where: {
+            id: userId,
+        },
         data: {
             password: pass
-        },
-        where: {
-            email: email,
         },
     });
 
@@ -58,5 +65,11 @@ export async function removeAllFeeds(email: string){
             userId: user
         }
     })
+    const deleteAllContent = await prisma.rss.deleteMany({
+        where:{
+            userId: user
+        }
+    })
+
 
 }

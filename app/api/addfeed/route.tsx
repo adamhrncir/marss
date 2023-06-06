@@ -6,11 +6,10 @@ export async function POST(request: Request) {
 
         const res = await request.json();
 
-        const email = res.email.current
+        const email = res.email
         const feedUrl = res.feedUrl.current
         const feedName = res.feedName.current
-        var fetchFavicon = require('@meltwater/fetch-favicon').fetchFavicon
-        const image = fetchFavicon(feedUrl)
+        const image = 'https://s2.googleusercontent.com/s2/favicons?domain_url=' + feedUrl
 
         addFeed(email, feedUrl, feedName, image)
 

@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
         const res = await request.json();
 
-        const email = res.email.current
+        const email = res.email
 
         removeAllFeeds(email)
 

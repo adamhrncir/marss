@@ -10,7 +10,7 @@ export default function settingsPage() {
 
 const session = useSession()
 
-const email = session.user.email //!CHECK
+const email = session.data?.user?.email
 
   const pass = useRef("");
   const pass2 = useRef("");
@@ -21,6 +21,7 @@ const email = session.user.email //!CHECK
 
       if (pass.current == pass2.current && pass.current != "") {
 
+          console.log(email + "pass")
           
           const send = await fetch('/api/changepassword',{
               method: 'POST',

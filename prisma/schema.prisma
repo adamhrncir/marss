@@ -13,15 +13,13 @@ model User {
   password  String
   name      String?
   feeds     rss[]
-  weather   weather? @relation(fields: [weatherId], references: [id])
-  weatherId Int?
 }
 
 model rss {
   website_name String
   image        String?
   url          String        @id
-  User         User          @relation(fields: [userId], references: [id])
+  User         User          @relation(fields: [userId], references: [id], onDelete: NoAction)
   userId       Int
   articles     rss_content[]
 }
@@ -33,16 +31,7 @@ model rss_content {
   description String
   userId      Int
   guid        String  @id
-  fetchtime   Int?
-  rss         rss?    @relation(fields: [rssUrl], references: [url])
+  pubDate     Int?
+  rss         rss?    @relation(fields: [rssUrl], references: [url], onDelete: Cascade)
   rssUrl      String
-}
-
-model weather {
-  id        Int    @id @default(autoincrement())
-  location  String @unique
-  longlat   String
-  result    String
-  fetchtime Int
-  user      User[]
 }

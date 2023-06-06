@@ -6,9 +6,10 @@ export async function POST(request: Request) {
 
         const res = await request.json();
 
-        const email = res.email.current
+        const email = res.email
         const pass = res.pass.current
 
+        console.log(email + "pass")
         changePass(email, pass)
 
         return new Response('Password changed :)', {

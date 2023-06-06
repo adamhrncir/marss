@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { fetchAllFeeds, fetchAll, fetchStart, fetchFavs, fetchAllTags, fetchName } from "../components/rss-actions";
+import { fetchAllFeeds, fetchAll, fetchName, fetchImg } from "../components/rss-actions";
 import { authOptions } from '../api/auth/[...nextauth]/route';
+import { storeAllFeeds } from '../components/rss-actions';
 
 import { getServerSession } from 'next-auth';
 import { LogoutButton, LogoutButtonMobile } from '../dashboard/auth'
+import { redirect } from 'next/navigation';
 
 
 export default async function dashboardPage() {
@@ -12,15 +14,19 @@ export default async function dashboardPage() {
 
   const session = await getServerSession(authOptions)
   
+  
   const stringsess = JSON.stringify(session)
   const parsed = JSON.parse(stringsess)
-
+  
   const mail = String(parsed.user.email)
+  const rss = await storeAllFeeds(mail)
 
   const allFeeds = await fetchAllFeeds(mail)
-  const listAll = await fetchAll(mail)
-  const listStart = await fetchStart(mail, 'bá')
-  const listFavs = await fetchFavs(mail)
+  var listAll = await fetchAll(mail)
+
+  if (listAll == ""){
+    redirect('/dashboard/settings');
+  }
 
   return (
     <>
@@ -44,7 +50,6 @@ export default async function dashboardPage() {
     
   </div>
 
-
   <div className="col-sm-1">
     <div className="logOutDashboard">
     <LogoutButton />
@@ -53,10 +58,6 @@ export default async function dashboardPage() {
     <LogoutButtonMobile />
       </div>
   </div>
-
-
-
-
 
 
   <div className="col-sm-1">
@@ -85,7 +86,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[0].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -95,11 +96,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[0].imageURL}
+                    src={await fetchImg(await listAll[0].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[0].rss_contentUrl ) }
+                  { await fetchName( await listAll[0].rssUrl ) }
                 </p>
                 <h4>{listAll[0].title}</h4>
               </div>
@@ -115,7 +116,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[1].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -125,11 +126,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[1].imageURL}
+                    src={await fetchImg(await listAll[1].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[1].rss_contentUrl ) }
+                  { await fetchName( await listAll[1].rssUrl ) }
                 </p>
                 <h4>{listAll[1].title}</h4>
               </div>
@@ -143,7 +144,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[2].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -153,11 +154,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[2].imageURL}
+                    src={await fetchImg(await listAll[2].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[2].rss_contentUrl ) }
+                  { await fetchName( await listAll[2].rssUrl ) }
                 </p>
                 <h4>{listAll[2].title}</h4>
               </div>
@@ -171,7 +172,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[3].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -181,11 +182,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[3].imageURL}
+                    src={await fetchImg(await listAll[3].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[3].rss_contentUrl ) }
+                  { await fetchName( await listAll[3].rssUrl ) }
                 </p>
                 <h4>{listAll[3].title}</h4>
               </div>
@@ -199,7 +200,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[4].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -209,11 +210,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[4].imageURL}
+                    src={await fetchImg(await listAll[4].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[4].rss_contentUrl ) }
+                  { await fetchName( await listAll[4].rssUrl ) }
                 </p>
                 <h4>{listAll[4].title}</h4>
               </div>
@@ -227,7 +228,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[5].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -237,11 +238,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[5].imageURL}
+                    src={await fetchImg(await listAll[5].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[5].rss_contentUrl ) }
+                  { await fetchName( await listAll[5].rssUrl ) }
                 </p>
                 <h4>{listAll[5].title}</h4>
               </div>
@@ -254,7 +255,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[6].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -264,11 +265,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[6].imageURL}
+                    src={await fetchImg(await listAll[6].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[6].rss_contentUrl ) }
+                  { await fetchName( await listAll[6].rssUrl ) }
                 </p>
                 <h4>{listAll[6].title}</h4>
               </div>
@@ -282,7 +283,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[7].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -292,11 +293,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[7].imageURL}
+                    src={await fetchImg(await listAll[7].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[7].rss_contentUrl ) }
+                  { await fetchName( await listAll[7].rssUrl ) }
                 </p>
                 <h4>{listAll[7].title}</h4>
               </div>
@@ -310,7 +311,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[8].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -320,11 +321,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[8].imageURL}
+                    src={await fetchImg(await listAll[8].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[8].rss_contentUrl ) }
+                  { await fetchName( await listAll[8].rssUrl ) }
                 </p>
                 <h4>{listAll[8].title}</h4>
               </div>
@@ -338,7 +339,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[9].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -348,11 +349,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[9].imageURL}
+                    src={await fetchImg(await listAll[9].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[9].rss_contentUrl ) }
+                  { await fetchName( await listAll[9].rssUrl ) }
                 </p>
                 <h4>{listAll[9].title}</h4>
               </div>
@@ -366,7 +367,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[10].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -376,11 +377,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[10].imageURL}
+                    src={await fetchImg(await listAll[10].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[10].rss_contentUrl ) }
+                  { await fetchName( await listAll[10].rssUrl ) }
                 </p>
                 <h4>{listAll[10].title}</h4>
               </div>
@@ -394,7 +395,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[11].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -404,11 +405,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[11].imageURL}
+                    src={await fetchImg(await listAll[11].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[11].rss_contentUrl ) }
+                  { await fetchName( await listAll[11].rssUrl ) }
                 </p>
                 <h4>{listAll[11].title}</h4>
               </div>
@@ -422,7 +423,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[12].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -432,11 +433,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[12].imageURL}
+                    src={await fetchImg(await listAll[12].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[12].rss_contentUrl ) }
+                  { await fetchName( await listAll[12].rssUrl ) }
                 </p>
                 <h4>{listAll[12].title}</h4>
               </div>
@@ -450,7 +451,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[13].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -460,11 +461,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[13].imageURL}
+                    src={await fetchImg(await listAll[13].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[13].rss_contentUrl ) }
+                  { await fetchName( await listAll[13].rssUrl ) }
                 </p>
                 <h4>{listAll[13].title}</h4>
               </div>
@@ -478,7 +479,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[14].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -488,11 +489,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[14].imageURL}
+                    src={await fetchImg(await listAll[14].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[14].rss_contentUrl ) }
+                  { await fetchName( await listAll[14].rssUrl ) }
                 </p>
                 <h4>{listAll[14].title}</h4>
               </div>
@@ -506,7 +507,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[15].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -516,11 +517,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[15].imageURL}
+                    src={await fetchImg(await listAll[15].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[15].rss_contentUrl ) }
+                  { await fetchName( await listAll[15].rssUrl ) }
                 </p>
                 <h4>{listAll[15].title}</h4>
               </div>
@@ -534,7 +535,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[16].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -544,11 +545,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[16].imageURL}
+                    src={await fetchImg(await listAll[16].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[16].rss_contentUrl ) }
+                  { await fetchName( await listAll[16].rssUrl ) }
                 </p>
                 <h4>{listAll[16].title}</h4>
               </div>
@@ -562,7 +563,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[17].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -572,11 +573,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[17].imageURL}
+                    src={await fetchImg(await listAll[17].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[17].rss_contentUrl ) }
+                  { await fetchName( await listAll[17].rssUrl ) }
                 </p>
                 <h4>{listAll[17].title}</h4>
               </div>
@@ -590,7 +591,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[18].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -600,11 +601,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[18].imageURL}
+                    src={await fetchImg(await listAll[18].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[18].rss_contentUrl ) }
+                  { await fetchName( await listAll[18].rssUrl ) }
                 </p>
                 <h4>{listAll[18].title}</h4>
               </div>
@@ -618,7 +619,7 @@ export default async function dashboardPage() {
             <div className="row">
               <div className="col-sm-2 .ilustracnifoto">
                 <img
-                  src="https:/i.iinfo.cz/r/rss-88x31.gif"
+                  src={listAll[19].imageUrl}
                   width="100%"
                   height="100%"
                   alt="ilustracnifoto"
@@ -628,11 +629,11 @@ export default async function dashboardPage() {
                 <p>
                   <img
                     
-                    src={listAll[19].imageURL}
+                    src={await fetchImg(await listAll[19].rssUrl)}
                     width="auto"
                     height="15px"
                     alt="logo" />
-                  { await fetchName( await allFeeds[19].rss_contentUrl ) }
+                  { await fetchName( await listAll[19].rssUrl ) }
                 </p>
                 <h4>{listAll[20].title}</h4>
               </div>
