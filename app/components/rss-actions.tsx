@@ -33,11 +33,10 @@ export async function fetchAll(email: string) {
     const obj2 = JSON.parse(stringrss)
 
     const rss_content = await prisma.rss_content
-    .findMany({ where: { rssUrl: obj2.url } , orderBy: {pubDate: 'desc'}})
+    .findMany({ where: { rssUrl: obj2.url, userId: obj.id } , orderBy: {pubDate: 'desc'}})
 
     const stringrss_content = JSON.stringify(rss_content)
     const obj3 = JSON.parse(stringrss_content)
-
     return obj3
 }
 
@@ -105,8 +104,7 @@ export async function storeAllFeeds(email: string){
     const stringrss = JSON.stringify(rss)
     const obj2 = JSON.parse(stringrss)
 
-    var rssCount = await prisma.rss.count();
-
+    var rssCount = await prisma.rss.count({where: {userId: obj.id}});
     for (var i = 0; i < rssCount; i++) {
       
       
@@ -123,7 +121,6 @@ export async function storeAllFeeds(email: string){
           var parseString = require('xml2js').parseString;
           parseString(content, function(err: any, result: any){
 
-            console.log(result.rss.channel[0].item[0].title)
             var max = Object.keys(result.rss.channel[0].item).length //max lenght for forloop
             for (var x = 0; x < max; x++){
               var title = result.rss.channel[0].item[x].title[0]
@@ -173,6 +170,5 @@ async function createContent(title: string, link: string, description: string, g
       pubDate,
     },
   });
-  console.log("created?")
 
 }
